@@ -8,9 +8,11 @@
     <version>1.0</version>
     <name>holidayService Spring-WS Application</name>
     <url>http://www.springframework.org/spring-ws</url>
+    
     <build>
         <finalName>holidayService</finalName>
     </build>
+    
     <dependencies>
         <dependency>
 			<groupId>org.springframework</groupId>
@@ -21,6 +23,11 @@
 			<groupId>org.springframework.ws</groupId>
 			<artifactId>spring-ws-core</artifactId>
 			<version>2.2.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jdom</groupId>
+			<artifactId>jdom2</artifactId>
+			<version>2.0.5</version>
 		</dependency>
     </dependencies>
 </project>
