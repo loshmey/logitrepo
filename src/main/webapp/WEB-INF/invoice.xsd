@@ -10,12 +10,11 @@
 	</xs:annotation>
 	
 	<!-- Invoice contains these elements -->
-	<xs:element name="invoiceId" type="xs:long"/>  
-	<xs:element name="getInvoiceRequest" type="ih:invoiceRequestItems"/>
-	<xs:element name="getInvoiceResponse" type="ih:invoiceResponseItems"/>	
+	<xs:element name="InvoiceRequest" type="ih:invoiceRequest"/>
+	<xs:element name="InvoiceResponse" type="ih:invoiceResponse"/>	
 	
 	<!-- Request Items -->
-	<xs:complexType name="invoiceRequestItems">
+	<xs:complexType name="invoiceRequest">
 		<xs:annotation>
 			<xs:documentation>Invoice request elements.</xs:documentation>
 		</xs:annotation>
@@ -435,7 +434,7 @@
 	</xs:complexType>
 	
 	<!-- Response Items --> 
-	<xs:complexType name="invoiceResponseItems">
+	<xs:complexType name="invoiceResponse">
 		<xs:annotation>
 			<xs:documentation>Invoice response.</xs:documentation>
 		</xs:annotation>
