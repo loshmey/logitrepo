@@ -6,4 +6,4 @@
 //
 
 @javax.xml.bind.annotation.XmlSchema(namespace = "http://localhost:8080/invoiceService/", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
-package com.lo.apps.entity.invoice;
+package com.lo.apps.ws.entity.invoice;

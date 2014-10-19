@@ -6,7 +6,7 @@
 //
 
 
-package com.lo.apps.entity.invoice;
+package com.lo.apps.ws.entity.invoice;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

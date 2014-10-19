@@ -1,4 +1,4 @@
-package com.lo.apps.config;
+package com.lo.apps.ws.config;
 
 import org.springframework.boot.context.embedded.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
@@ -21,14 +21,14 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 		MessageDispatcherServlet servlet = new MessageDispatcherServlet();
 		servlet.setApplicationContext(applicationContext);
 		servlet.setTransformWsdlLocations(true);
-		return new ServletRegistrationBean(servlet, "/*");
+		return new ServletRegistrationBean(servlet, "/ws/*");
 	}
 
 	@Bean(name = "invoice")
 	public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema invoiceSchema) {
 		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
 		wsdl11Definition.setPortTypeName("InvoicePort");
-		wsdl11Definition.setLocationUri("/");
+		wsdl11Definition.setLocationUri("/ws");
 		wsdl11Definition.setTargetNamespace("http://localhost:8080/invoiceService/");
 		wsdl11Definition.setSchema(invoiceSchema);
 		return wsdl11Definition;

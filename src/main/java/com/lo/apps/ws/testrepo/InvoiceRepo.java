@@ -1,4 +1,4 @@
-package com.lo.apps.testrepo;
+package com.lo.apps.ws.testrepo;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -9,14 +9,14 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Component;
 
-import com.lo.apps.entity.invoice.Account;
-import com.lo.apps.entity.invoice.Buyer;
-import com.lo.apps.entity.invoice.InvoiceHeader;
-import com.lo.apps.entity.invoice.InvoiceRecord;
-import com.lo.apps.entity.invoice.InvoiceRequest;
-import com.lo.apps.entity.invoice.Sums;
-import com.lo.apps.entity.invoice.Supplier;
-import com.lo.apps.entity.invoice.Transaction;
+import com.lo.apps.ws.entity.invoice.Account;
+import com.lo.apps.ws.entity.invoice.Buyer;
+import com.lo.apps.ws.entity.invoice.InvoiceHeader;
+import com.lo.apps.ws.entity.invoice.InvoiceRecord;
+import com.lo.apps.ws.entity.invoice.InvoiceRequest;
+import com.lo.apps.ws.entity.invoice.Sums;
+import com.lo.apps.ws.entity.invoice.Supplier;
+import com.lo.apps.ws.entity.invoice.Transaction;
 
 @Component
 public class InvoiceRepo {

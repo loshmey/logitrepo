@@ -1,4 +1,4 @@
-package com.lo.apps.service;
+package com.lo.apps.ws.service;
 
 import org.springframework.stereotype.Service;
 

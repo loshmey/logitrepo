@@ -5,7 +5,7 @@
 // Generated on: 2014.10.18 at 08:58:06 PM CEST 
 //
 
-package com.lo.apps.entity.invoice;
+package com.lo.apps.ws.entity.invoice;
 
 import java.util.Date;
 
