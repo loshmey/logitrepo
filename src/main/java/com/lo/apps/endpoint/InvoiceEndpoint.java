@@ -10,18 +10,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
+import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
+import com.lo.apps.entity.invoice.InvoiceRequest;
+import com.lo.apps.entity.invoice.InvoiceResponse;
 import com.lo.apps.service.InvoiceService;
+import com.lo.apps.testrepo.InvoiceRepo;
 
 @Endpoint
 public class InvoiceEndpoint {
 
 	private static final String NAMESPACE_URI = "http://localhost:8080/invoiceService/";
 
-	private XPathExpression<Element> invoiceId;
-	private XPathExpression<Element> getInvoiceRequest;
-	private XPathExpression<Element> getInvoiceResponse;
+	private XPathExpression<Element> invoiceRequest;
+	private XPathExpression<Element> invoiceResponse;
 	private InvoiceService invoiceService;
+	private InvoiceRepo repo;
 
 	@Autowired
 	public InvoiceEndpoint(InvoiceService invoiceService) throws JDOMException {
@@ -30,13 +34,22 @@ public class InvoiceEndpoint {
 		Namespace namespace = Namespace.getNamespace("ih", NAMESPACE_URI);
 		XPathFactory factory = XPathFactory.instance();
 
-		getInvoiceRequest = factory.compile("ih:invoiceRequestItems", Filters.element(), null, namespace);
-		getInvoiceResponse = factory.compile("ih:invoiceResponseItems", Filters.element(), null, namespace);
+		invoiceRequest = factory.compile("//ih:invoiceRequest", Filters.element(), null, namespace);
+		invoiceResponse = factory.compile("//ih:invoiceResponse", Filters.element(), null, namespace);
 	}
 
-	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "invoiceService")
-	public void handleInvoiceRequest(@RequestPayload Element invoiceRequest) throws Exception {
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "InvoiceRequest")
+	@ResponsePayload
+	public InvoiceResponse handleInvoiceRequest(@RequestPayload InvoiceRequest invoiceRequestElement) throws Exception {
+		InvoiceResponse response = new InvoiceResponse();
+		response.setDescription(repo.getInvoice().toString());
 
+		System.out.println("======invoiceRequestElement");
+		System.out.println(invoiceRequestElement.toString());
+		System.out.println("======response");
+		System.out.println(response);
+
+		return response;
 	}
 
 }

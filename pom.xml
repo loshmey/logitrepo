@@ -9,9 +9,11 @@
     <name>holidayService Spring-WS Application</name>
     <url>http://www.springframework.org/spring-ws</url>
     
-    <build>
-        <finalName>holidayService</finalName>
-    </build>
+    <parent>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-parent</artifactId>
+	    <version>1.1.8.RELEASE</version>
+	</parent>
     
     <dependencies>
         <dependency>
@@ -29,5 +31,31 @@
 			<artifactId>jdom2</artifactId>
 			<version>2.0.5</version>
 		</dependency>
+		<dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-starter-web</artifactId>
+	    </dependency>
+	    <dependency>
+		    <groupId>wsdl4j</groupId>
+		    <artifactId>wsdl4j</artifactId>
+		    <version>1.6.1</version>
+		</dependency>
     </dependencies>
+    
+    <properties>
+        <!-- use UTF-8 for everything -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <start-class>com.lo.apps.config.Application</start-class>
+    </properties>
+    
+    <build>
+    	<finalName>holidayService</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>
