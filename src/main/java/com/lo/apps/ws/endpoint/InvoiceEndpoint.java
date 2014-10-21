@@ -14,7 +14,8 @@ import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 
 import com.lo.apps.ws.entity.invoice.InvoiceRequest;
 import com.lo.apps.ws.entity.invoice.InvoiceResponse;
-import com.lo.apps.ws.repository.InvoiceRequestRepository;
+import com.lo.apps.ws.entity.invoice.Status;
+import com.lo.apps.ws.service.InvoiceRequestService;
 import com.lo.apps.ws.testrepo.InvoiceRepo;
 
 /**
@@ -30,11 +31,11 @@ public class InvoiceEndpoint {
 
 	private XPathExpression<Element> invoiceRequest;
 	private XPathExpression<Element> invoiceResponse;
-	private InvoiceRequestRepository invoiceService;
+	private InvoiceRequestService invoiceService;
 	private InvoiceRepo repo;
 
 	@Autowired
-	public InvoiceEndpoint(InvoiceRequestRepository invoiceService) throws JDOMException {
+	public InvoiceEndpoint(InvoiceRequestService invoiceService) throws JDOMException {
 		this.invoiceService = invoiceService;
 
 		Namespace namespace = Namespace.getNamespace("ih", NAMESPACE_URI);
@@ -45,19 +46,24 @@ public class InvoiceEndpoint {
 	}
 
 	/**
+	 * Handles invoice request and sends response back.
 	 * 
 	 * @param invoiceRequestElement
-	 * @return
+	 *            Element from schema.
+	 * @return Invoice response: <code>OK</code>, <code>PENDING</code> or
+	 *         <code>ERROR</code>.
 	 * @throws Exception
 	 */
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "InvoiceRequest")
 	public InvoiceResponse handleInvoiceRequest(@RequestPayload Element invoiceRequestElement) throws Exception {
-		// TODO snimiti request u bazu
 		InvoiceRequest invReq = parseRequestElement(invoiceRequest, invoiceRequestElement);
+		invoiceService.saveInvoiceRequest(invReq);
 
 		InvoiceResponse invRes = parseResponseElement(invoiceResponse, invoiceRequestElement);
 
+		// TODO zameniti sa pravim posle testa
 		invRes.setDescription(repo.getInvoice().toString());
+		invRes.setStatus(Status.OK);
 
 		return invRes;
 	}
