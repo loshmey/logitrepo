@@ -18,6 +18,12 @@ import com.lo.apps.ws.entity.invoice.Sums;
 import com.lo.apps.ws.entity.invoice.Supplier;
 import com.lo.apps.ws.entity.invoice.Transaction;
 
+/**
+ * Test invoice dok se ne sredi citanje/upis u bazu.
+ * 
+ * @author milos.poljak
+ *
+ */
 @Component
 public class InvoiceRepo {
 
@@ -66,17 +72,17 @@ public class InvoiceRepo {
 
 		invoiceRecord.setAmount(new BigDecimal(4));
 		invoiceRecord.setMerchOrServiceName("Merch 1");
-		invoiceRecord.setMessageId(1);
 		invoiceRecord.setRebateAmount(new BigDecimal(0.3));
 		invoiceRecord.setRebateDeducted(new BigDecimal(0));
 		invoiceRecord.setRebatePercentage(new BigDecimal(0.1));
 		invoiceRecord.setRecordNumber("123");
 		invoiceRecord.setTaxTotal(new BigDecimal(0.1));
-		invoiceRecord.setTimestamp(new Date());
 		invoiceRecord.setUnitOfIssue("Unit");
 		invoiceRecord.setUnitPrice(new BigDecimal(11.2));
 		invoiceRecord.setValue(new BigDecimal(11.99));
 
+		invoiceRequest.setInvoiceId(1);
+		invoiceRequest.setTimestamp(new Date());
 		invoiceRequest.setInvoiceHeaderData(invoiceHeader);
 		invoiceRequest.getInvoiceRecordData().add(invoiceRecord);
 

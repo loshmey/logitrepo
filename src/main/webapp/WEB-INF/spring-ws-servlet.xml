@@ -14,4 +14,6 @@
 	<mvc:annotation-driven/>
 	<context:component-scan base-package="com.lo.apps.ws"/>
 
+	<web-services:static-wsdl id="invoice" location="/WEB-INF/wsdl/invoice.wsdl"/>
+
 </beans>

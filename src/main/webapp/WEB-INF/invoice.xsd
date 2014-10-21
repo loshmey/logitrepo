@@ -19,8 +19,10 @@
 			<xs:documentation>Invoice request elements.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element name="invoiceId" type="xs:long" maxOccurs="1"/>
+			<xs:element name="timestamp" type="xs:date"/>
 			<xs:element name="invoiceHeaderData" type="ih:invoiceHeader" maxOccurs="1"/>
-			<xs:element name="invoiceRecordData" type="ih:invoiceRecord" maxOccurs="unbounded"/>			
+			<xs:element name="invoiceRecordData" type="ih:invoiceRecord" maxOccurs="unbounded"/>							
 		</xs:sequence>
 	</xs:complexType>	
 	
@@ -170,8 +172,6 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="messageId" type="xs:long"/>
-			<xs:element name="timestamp" type="xs:date"/>			
 		</xs:sequence>
 	</xs:complexType>
 	
