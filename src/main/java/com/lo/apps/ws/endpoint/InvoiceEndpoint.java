@@ -31,7 +31,11 @@ public class InvoiceEndpoint {
 
 	private XPathExpression<Element> invoiceRequest;
 	private XPathExpression<Element> invoiceResponse;
+
+	@Autowired
 	private InvoiceRequestService invoiceService;
+
+	@Autowired
 	private InvoiceRepo repo;
 
 	@Autowired
@@ -57,7 +61,6 @@ public class InvoiceEndpoint {
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "InvoiceRequest")
 	public InvoiceResponse handleInvoiceRequest(@RequestPayload Element invoiceRequestElement) throws Exception {
 		InvoiceRequest invReq = parseRequestElement(invoiceRequest, invoiceRequestElement);
-		invoiceService.saveInvoiceRequest(invReq);
 
 		InvoiceResponse invRes = parseResponseElement(invoiceResponse, invoiceRequestElement);
 

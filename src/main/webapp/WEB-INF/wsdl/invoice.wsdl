@@ -1,25 +1,21 @@
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	xmlns:sch="http://localhost:8080/invoiceService/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	xmlns:tns="http://localhost:8080/invoiceService/" targetNamespace="http://localhost:8080/invoiceService/">
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://localhost:8080/invoiceService/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://localhost:8080/invoiceService/" targetNamespace="http://localhost:8080/invoiceService/">
 	<wsdl:types>
-		<xs:schema xmlns:ih="http://localhost:8080/invoiceService/"
-			xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified"
-			elementFormDefault="qualified" targetNamespace="http://localhost:8080/invoiceService/">
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ih="http://localhost:8080/invoiceService/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://localhost:8080/invoiceService/">
 			<xs:annotation>
 				<xs:documentation>Invoice schema</xs:documentation>
 			</xs:annotation>
 			<!-- Invoice contains these elements -->
-			<xs:element name="InvoiceRequest" type="ih:invoiceRequest" />
-			<xs:element name="InvoiceResponse" type="ih:invoiceResponse" />
+			<xs:element name="InvoiceRequest" type="ih:invoiceRequest"/>
+			<xs:element name="InvoiceResponse" type="ih:invoiceResponse"/>
 			<!-- Request Items -->
 			<xs:complexType name="invoiceRequest">
 				<xs:annotation>
 					<xs:documentation>Invoice request elements.</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element maxOccurs="1" name="invoiceHeaderData" type="ih:invoiceHeader" />
-					<xs:element maxOccurs="unbounded" name="invoiceRecordData"
-						type="ih:invoiceRecord" />
+					<xs:element maxOccurs="1" name="invoiceHeaderData" type="ih:invoiceHeader"/>
+					<xs:element maxOccurs="unbounded" name="invoiceRecordData" type="ih:invoiceRecord"/>
 				</xs:sequence>
 			</xs:complexType>
 			<!-- Request Item: INVOICE HEADER -->
@@ -31,9 +27,9 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="supplier" type="ih:supplier" />
-					<xs:element name="buyer" type="ih:buyer" />
-					<xs:element name="transaction" type="ih:transaction" />
+					<xs:element name="supplier" type="ih:supplier"/>
+					<xs:element name="buyer" type="ih:buyer"/>
+					<xs:element name="transaction" type="ih:transaction"/>
 				</xs:sequence>
 			</xs:complexType>
 			<!-- Request Item: INVOICE RECORD -->
@@ -52,8 +48,8 @@
 								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:string">
-								<xs:whiteSpace value="collapse" />
-								<xs:pattern value="^[0-9]{3}$" />
+								<xs:whiteSpace value="collapse"/>
+								<xs:pattern value="^[0-9]{3}$"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
@@ -65,10 +61,10 @@
 								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:string">
-								<xs:whiteSpace value="preserve" />
-								<xs:minLength value="1" />
-								<xs:maxLength value="120" />
-								<xs:pattern value="^[a-zA-Z]{0,120}$" />
+								<xs:whiteSpace value="preserve"/>
+								<xs:minLength value="1"/>
+								<xs:maxLength value="120"/>
+								<xs:pattern value="^[a-zA-Z]{0,120}$"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
@@ -79,10 +75,10 @@
 								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:decimal">
-								<xs:whiteSpace value="collapse" />
-								<xs:fractionDigits value="2" />
-								<xs:minInclusive value="1" />
-								<xs:pattern value="^\d{1,10},{0,1}\d{2}$" />
+								<xs:whiteSpace value="collapse"/>
+								<xs:fractionDigits value="2"/>
+								<xs:minInclusive value="1"/>
+								<xs:pattern value="^\d{1,10},{0,1}\d{2}$"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
@@ -93,10 +89,10 @@
 								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:string">
-								<xs:whiteSpace value="collapse" />
-								<xs:minLength value="1" />
-								<xs:maxLength value="6" />
-								<xs:pattern value="^[a-zA-Z]{0,6}$" />
+								<xs:whiteSpace value="collapse"/>
+								<xs:minLength value="1"/>
+								<xs:maxLength value="6"/>
+								<xs:pattern value="^[a-zA-Z]{0,6}$"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
@@ -107,10 +103,10 @@
 								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:decimal">
-								<xs:whiteSpace value="collapse" />
-								<xs:fractionDigits value="2" />
-								<xs:minInclusive value="1" />
-								<xs:pattern value="^\d{1,10},{0,1}\d{2}$" />
+								<xs:whiteSpace value="collapse"/>
+								<xs:fractionDigits value="2"/>
+								<xs:minInclusive value="1"/>
+								<xs:pattern value="^\d{1,10},{0,1}\d{2}$"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
@@ -121,10 +117,10 @@
 								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:decimal">
-								<xs:whiteSpace value="collapse" />
-								<xs:fractionDigits value="2" />
-								<xs:minInclusive value="1" />
-								<xs:pattern value="^\d{1,12},{0,1}\d{2}$" />
+								<xs:whiteSpace value="collapse"/>
+								<xs:fractionDigits value="2"/>
+								<xs:minInclusive value="1"/>
+								<xs:pattern value="^\d{1,12},{0,1}\d{2}$"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
@@ -135,10 +131,10 @@
 									5,2</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:decimal">
-								<xs:whiteSpace value="collapse" />
-								<xs:fractionDigits value="2" />
-								<xs:minInclusive value="1" />
-								<xs:pattern value="^\d{1,5},{0,1}\d{2}$" />
+								<xs:whiteSpace value="collapse"/>
+								<xs:fractionDigits value="2"/>
+								<xs:minInclusive value="1"/>
+								<xs:pattern value="^\d{1,5},{0,1}\d{2}$"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
@@ -149,10 +145,10 @@
 								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:decimal">
-								<xs:whiteSpace value="collapse" />
-								<xs:fractionDigits value="2" />
-								<xs:minInclusive value="1" />
-								<xs:pattern value="^\d{1,12},{0,1}\d{2}$" />
+								<xs:whiteSpace value="collapse"/>
+								<xs:fractionDigits value="2"/>
+								<xs:minInclusive value="1"/>
+								<xs:pattern value="^\d{1,12},{0,1}\d{2}$"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
@@ -163,10 +159,10 @@
 								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:decimal">
-								<xs:whiteSpace value="collapse" />
-								<xs:fractionDigits value="2" />
-								<xs:minInclusive value="1" />
-								<xs:pattern value="^\d{1,12},{0,1}\d{2}$" />
+								<xs:whiteSpace value="collapse"/>
+								<xs:fractionDigits value="2"/>
+								<xs:minInclusive value="1"/>
+								<xs:pattern value="^\d{1,12},{0,1}\d{2}$"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
@@ -177,15 +173,15 @@
 								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:decimal">
-								<xs:whiteSpace value="collapse" />
-								<xs:fractionDigits value="2" />
-								<xs:minInclusive value="1" />
-								<xs:pattern value="^\d{1,12},{0,1}\d{2}$" />
+								<xs:whiteSpace value="collapse"/>
+								<xs:fractionDigits value="2"/>
+								<xs:minInclusive value="1"/>
+								<xs:pattern value="^\d{1,12},{0,1}\d{2}$"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
-					<xs:element name="messageId" type="xs:long" />
-					<xs:element name="timestamp" type="xs:date" />
+					<xs:element name="messageId" type="xs:long"/>
+					<xs:element name="timestamp" type="xs:date"/>
 				</xs:sequence>
 			</xs:complexType>
 			<!-- Request Item: INVOICE HEADER - SUPPLIER -->
@@ -201,10 +197,10 @@
 									only</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:string">
-								<xs:whiteSpace value="preserve" />
-								<xs:minLength value="1" />
-								<xs:maxLength value="255" />
-								<xs:pattern value="^[a-zA-Z ]{0,255}$" />
+								<xs:whiteSpace value="preserve"/>
+								<xs:minLength value="1"/>
+								<xs:maxLength value="255"/>
+								<xs:pattern value="^[a-zA-Z ]{0,255}$"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
@@ -215,10 +211,10 @@
 									only</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:string">
-								<xs:whiteSpace value="preserve" />
-								<xs:minLength value="1" />
-								<xs:maxLength value="255" />
-								<xs:pattern value="^[a-zA-Z ]{0,255}$" />
+								<xs:whiteSpace value="preserve"/>
+								<xs:minLength value="1"/>
+								<xs:maxLength value="255"/>
+								<xs:pattern value="^[a-zA-Z ]{0,255}$"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
@@ -231,9 +227,9 @@
 								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:string">
-								<xs:whiteSpace value="collapse" />
-								<xs:length value="1" />
-								<xs:pattern value="^[1-9][0-9]{10}$" />
+								<xs:whiteSpace value="collapse"/>
+								<xs:length value="1"/>
+								<xs:pattern value="^[1-9][0-9]{10}$"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
@@ -252,10 +248,10 @@
 								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:string">
-								<xs:whiteSpace value="collapse" />
-								<xs:minLength value="1" />
-								<xs:maxLength value="255" />
-								<xs:pattern value="^[a-zA-Z ]{0,55}$" />
+								<xs:whiteSpace value="collapse"/>
+								<xs:minLength value="1"/>
+								<xs:maxLength value="255"/>
+								<xs:pattern value="^[a-zA-Z ]{0,55}$"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
@@ -266,10 +262,10 @@
 								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:string">
-								<xs:whiteSpace value="collapse" />
-								<xs:minLength value="1" />
-								<xs:maxLength value="255" />
-								<xs:pattern value="^[a-zA-Z0-9 ]{0,55}$" />
+								<xs:whiteSpace value="collapse"/>
+								<xs:minLength value="1"/>
+								<xs:maxLength value="255"/>
+								<xs:pattern value="^[a-zA-Z0-9 ]{0,55}$"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
@@ -282,13 +278,13 @@
 								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:string">
-								<xs:whiteSpace value="collapse" />
-								<xs:length value="11" />
-								<xs:pattern value="^[1-9][0-9]{10}$" />
+								<xs:whiteSpace value="collapse"/>
+								<xs:length value="11"/>
+								<xs:pattern value="^[1-9][0-9]{10}$"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
-					<xs:element name="account" type="ih:account" />
+					<xs:element name="account" type="ih:account"/>
 				</xs:sequence>
 			</xs:complexType>
 			<!-- Request Item: INVOICE HEADER - TRANSACTION -->
@@ -304,10 +300,10 @@
 								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:decimal">
-								<xs:whiteSpace value="collapse" />
-								<xs:fractionDigits value="2" />
-								<xs:minInclusive value="1" />
-								<xs:pattern value="^\d{1,15},{0,1}\d{0,2}$" />
+								<xs:whiteSpace value="collapse"/>
+								<xs:fractionDigits value="2"/>
+								<xs:minInclusive value="1"/>
+								<xs:pattern value="^\d{1,15},{0,1}\d{0,2}$"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
@@ -318,14 +314,14 @@
 								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:decimal">
-								<xs:whiteSpace value="collapse" />
-								<xs:fractionDigits value="2" />
-								<xs:minInclusive value="1" />
-								<xs:pattern value="^\d{1,15},{0,1}\d{0,2}$" />
+								<xs:whiteSpace value="collapse"/>
+								<xs:fractionDigits value="2"/>
+								<xs:minInclusive value="1"/>
+								<xs:pattern value="^\d{1,15},{0,1}\d{0,2}$"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
-					<xs:element name="sums" type="ih:sums" />
+					<xs:element name="sums" type="ih:sums"/>
 					<xs:element name="amountToPay">
 						<xs:simpleType>
 							<xs:annotation>
@@ -333,10 +329,10 @@
 								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:decimal">
-								<xs:whiteSpace value="collapse" />
-								<xs:fractionDigits value="2" />
-								<xs:minInclusive value="1" />
-								<xs:pattern value="^\d{1,15},{0,1}\d{2}$" />
+								<xs:whiteSpace value="collapse"/>
+								<xs:fractionDigits value="2"/>
+								<xs:minInclusive value="1"/>
+								<xs:pattern value="^\d{1,15},{0,1}\d{2}$"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
@@ -348,8 +344,8 @@
 								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:string">
-								<xs:whiteSpace value="collapse" />
-								<xs:pattern value="^[1-9]{1}[\d\-]{17}$" />
+								<xs:whiteSpace value="collapse"/>
+								<xs:pattern value="^[1-9]{1}[\d\-]{17}$"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
@@ -360,8 +356,8 @@
 								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:string">
-								<xs:whiteSpace value="collapse" />
-								<xs:pattern value="^[a-zA-Z]{3}$" />
+								<xs:whiteSpace value="collapse"/>
+								<xs:pattern value="^[a-zA-Z]{3}$"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
@@ -372,8 +368,8 @@
 								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:date">
-								<xs:whiteSpace value="collapse" />
-								<xs:pattern value="^\d{4}-\d{2}-\d{2}$" />
+								<xs:whiteSpace value="collapse"/>
+								<xs:pattern value="^\d{4}-\d{2}-\d{2}$"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
@@ -393,10 +389,10 @@
 								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:decimal">
-								<xs:whiteSpace value="collapse" />
-								<xs:fractionDigits value="2" />
-								<xs:minInclusive value="1" />
-								<xs:pattern value="^\d{1,15},{0,1}\d{2}$" />
+								<xs:whiteSpace value="collapse"/>
+								<xs:fractionDigits value="2"/>
+								<xs:minInclusive value="1"/>
+								<xs:pattern value="^\d{1,15},{0,1}\d{2}$"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
@@ -407,10 +403,10 @@
 								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:decimal">
-								<xs:whiteSpace value="collapse" />
-								<xs:fractionDigits value="2" />
-								<xs:minInclusive value="1" />
-								<xs:pattern value="^\d{1,15},{0,1}\d{2}$" />
+								<xs:whiteSpace value="collapse"/>
+								<xs:fractionDigits value="2"/>
+								<xs:minInclusive value="1"/>
+								<xs:pattern value="^\d{1,15},{0,1}\d{2}$"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
@@ -421,10 +417,10 @@
 								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:decimal">
-								<xs:whiteSpace value="collapse" />
-								<xs:fractionDigits value="2" />
-								<xs:minInclusive value="1" />
-								<xs:pattern value="^\d{1,15},{0,1}\d{2}$" />
+								<xs:whiteSpace value="collapse"/>
+								<xs:fractionDigits value="2"/>
+								<xs:minInclusive value="1"/>
+								<xs:pattern value="^\d{1,15},{0,1}\d{2}$"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
@@ -443,8 +439,8 @@
 								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:string">
-								<xs:whiteSpace value="collapse" />
-								<xs:pattern value="^[0-9]{6}$" />
+								<xs:whiteSpace value="collapse"/>
+								<xs:pattern value="^[0-9]{6}$"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
@@ -455,8 +451,8 @@
 								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:date">
-								<xs:whiteSpace value="collapse" />
-								<xs:pattern value="^\d{4}-\d{2}-\d{2}$" />
+								<xs:whiteSpace value="collapse"/>
+								<xs:pattern value="^\d{4}-\d{2}-\d{2}$"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
@@ -468,48 +464,47 @@
 					<xs:documentation>Invoice response.</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
-					<xs:element name="status" type="ih:status" />
-					<xs:element name="description" type="xs:string" />
+					<xs:element name="status" type="ih:status"/>
+					<xs:element name="description" type="xs:string"/>
 				</xs:sequence>
 			</xs:complexType>
 			<!-- Service status -->
 			<xs:simpleType name="status">
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="OK" />
-					<xs:enumeration value="ERROR" />
-					<xs:enumeration value="PENDING" />
+					<xs:enumeration value="OK"/>
+					<xs:enumeration value="ERROR"/>
+					<xs:enumeration value="PENDING"/>
 				</xs:restriction>
 			</xs:simpleType>
 		</xs:schema>
 	</wsdl:types>
 	<wsdl:message name="InvoiceResponse">
-		<wsdl:part element="tns:InvoiceResponse" name="InvoiceResponse"></wsdl:part>
+		<wsdl:part element="tns:InvoiceResponse" name="InvoiceResponse"/>
 	</wsdl:message>
 	<wsdl:message name="InvoiceRequest">
-		<wsdl:part element="tns:InvoiceRequest" name="InvoiceRequest"></wsdl:part>
+		<wsdl:part element="tns:InvoiceRequest" name="InvoiceRequest"/>
 	</wsdl:message>
 	<wsdl:portType name="InvoicePort">
 		<wsdl:operation name="Invoice">
-			<wsdl:input message="tns:InvoiceRequest" name="InvoiceRequest"></wsdl:input>
-			<wsdl:output message="tns:InvoiceResponse" name="InvoiceResponse"></wsdl:output>
+			<wsdl:input message="tns:InvoiceRequest" name="InvoiceRequest"/>
+			<wsdl:output message="tns:InvoiceResponse" name="InvoiceResponse"/>
 		</wsdl:operation>
 	</wsdl:portType>
 	<wsdl:binding name="InvoicePortSoap11" type="tns:InvoicePort">
-		<soap:binding style="document"
-			transport="http://schemas.xmlsoap.org/soap/http" />
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 		<wsdl:operation name="Invoice">
-			<soap:operation soapAction="" />
+			<soap:operation soapAction=""/>
 			<wsdl:input name="InvoiceRequest">
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:input>
 			<wsdl:output name="InvoiceResponse">
-				<soap:body use="literal" />
+				<soap:body use="literal"/>
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
 	<wsdl:service name="InvoicePortService">
 		<wsdl:port binding="tns:InvoicePortSoap11" name="InvoicePortSoap11">
-			<soap:address location="http://localhost:8080/" />
+			<soap:address location="http://localhost:8080/"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

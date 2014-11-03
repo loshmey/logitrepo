@@ -1,101 +1,183 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.lo.apps</groupId>
-    <artifactId>holidayService</artifactId>
-    <packaging>war</packaging>
-    <version>1.0</version>
-    <name>holidayService Spring-WS Application</name>
-    <url>http://www.springframework.org/spring-ws</url>
-    
-    <parent>
-	    <groupId>org.springframework.boot</groupId>
-	    <artifactId>spring-boot-starter-parent</artifactId>
-	    <version>1.1.8.RELEASE</version>
-	</parent>
-	
-    <dependencies>
-        <dependency>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.lo.apps</groupId>
+	<artifactId>holidayService</artifactId>
+	<packaging>war</packaging>
+	<version>1.0</version>
+	<name>holidayService Spring-WS Application</name>
+	<url>http://www.springframework.org/spring-ws</url>
+
+	<properties>
+		<!-- use UTF-8 for everything -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+<!-- 		<start-class>com.lo.apps.ws.config.Application</start-class> -->
+		<org.springframework-version>4.1.1.RELEASE</org.springframework-version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>4.1.1.RELEASE</version>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.ws</groupId>
 			<artifactId>spring-ws-core</artifactId>
-			<version>2.2.0.RELEASE</version><!--$NO-MVN-MAN-VER$-->
+			<version>2.2.0.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.jdom</groupId>
 			<artifactId>jdom2</artifactId>
-			<version>2.0.5</version><!--$NO-MVN-MAN-VER$-->
+			<version>2.0.5</version>
 		</dependency>
 		<dependency>
-	        <groupId>org.springframework.boot</groupId>
-	        <artifactId>spring-boot-starter-web</artifactId>
-	    </dependency>
-	    <dependency>
-		    <groupId>wsdl4j</groupId>
-		    <artifactId>wsdl4j</artifactId>
-		    <version>1.6.1</version><!--$NO-MVN-MAN-VER$-->
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<version>1.1.8.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>wsdl4j</groupId>
+			<artifactId>wsdl4j</artifactId>
+			<version>1.6.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>${org.springframework-version}</version><!--$NO-MVN-MAN-VER$-->
-		</dependency>
-  		<dependency>  
-			<groupId>org.springframework</groupId>  
-		   	<artifactId>spring-beans</artifactId>  
-		   	<version>${org.springframework-version}</version><!--$NO-MVN-MAN-VER$-->  
-  		</dependency>  
-  		<dependency>  
-   			<groupId>org.springframework</groupId>  
-   			<artifactId>spring-aop</artifactId>  
-   			<version>${org.springframework-version}</version><!--$NO-MVN-MAN-VER$-->  
-  		</dependency>
-  		<dependency>  
-   			<groupId>org.springframework</groupId>  
-   			<artifactId>spring-aspects</artifactId>  
-   			<version>${org.springframework-version}</version><!--$NO-MVN-MAN-VER$-->  
-  		</dependency>	
-  		<dependency>  
-   			<groupId>org.springframework</groupId>  
-   			<artifactId>spring-oxm</artifactId>  
-   			<version>${org.springframework-version}</version><!--$NO-MVN-MAN-VER$-->  
-  		</dependency>  
-  		<dependency>  
-   			<groupId>org.apache.ws.xmlschema</groupId>  
-   			<artifactId>xmlschema-core</artifactId>  
-   			<version>2.0.2</version>  
-  		</dependency>	
-  		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-jdbc</artifactId>
-			<version>${org.springframework-version}</version><!--$NO-MVN-MAN-VER$-->
+			<version>${org.springframework-version}</version>
 		</dependency>
 		<dependency>
-		   <groupId>org.springframework</groupId>
-		   <artifactId>spring-orm</artifactId>
-		   <version>${org.springframework-version}</version><!--$NO-MVN-MAN-VER$-->
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-oxm</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ws.xmlschema</groupId>
+			<artifactId>xmlschema-core</artifactId>
+			<version>2.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${org.springframework-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-commons</artifactId>
+			<version>1.9.0.RELEASE</version>
 		</dependency>
-    </dependencies>
-    
-    <properties>
-        <!-- use UTF-8 for everything -->
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <start-class>com.lo.apps.config.Application</start-class>
-        <org.springframework-version>4.1.1.RELEASE</org.springframework-version>
-    </properties>
-    
-    <build>
-    	<finalName>holidayService</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<!-- Jackson -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+
+		<!-- Java EE -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<!-- Others -->
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</dependency>
+
+		<!-- eXist DB -->
+		<dependency>
+			<groupId>exist</groupId>
+			<artifactId>exist-xmldb</artifactId>
+			<version>0.9.2</version>
+		</dependency>
+		<dependency>
+			<groupId>exist</groupId>
+			<artifactId>exist</artifactId>
+			<version>0.9.2</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>xalan</groupId>
+			<artifactId>xalan</artifactId>
+			<version>2.7.1</version>
+		</dependency>
+		
+		<!-- JAXEN -->
+		<dependency>
+			<groupId>jaxen</groupId>
+			<artifactId>jaxen</artifactId>
+			<version>1.1.6</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>holidayService</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>1.1.8.RELEASE</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<update>true</update>
+					<path>/${project.build.finalName}</path>
+					<url>http://localhost:8080/manager/text</url>
+					<server>localhost</server>
+					<username>admin</username>
+					<password>x</password>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
