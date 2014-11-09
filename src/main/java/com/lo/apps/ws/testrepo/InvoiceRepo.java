@@ -81,8 +81,7 @@ public class InvoiceRepo {
 		invoiceRecord.setUnitPrice(new BigDecimal(11.2));
 		invoiceRecord.setValue(new BigDecimal(11.99));
 
-		invoiceRequest.setInvoiceId(1);
-		invoiceRequest.setTimestamp(new Date());
+		invoiceRequest.setRequestDateTime(new Date());
 		invoiceRequest.setInvoiceHeaderData(invoiceHeader);
 		invoiceRequest.getInvoiceRecordData().add(invoiceRecord);
 

@@ -21,14 +21,14 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 		MessageDispatcherServlet servlet = new MessageDispatcherServlet();
 		servlet.setApplicationContext(applicationContext);
 		servlet.setTransformWsdlLocations(true);
-		return new ServletRegistrationBean(servlet, "/ws/*");
+		return new ServletRegistrationBean(servlet, "/*");
 	}
 
 	@Bean(name = "invoice")
 	public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema invoiceSchema) {
 		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
 		wsdl11Definition.setPortTypeName("InvoicePort");
-		wsdl11Definition.setLocationUri("/ws");
+		wsdl11Definition.setLocationUri("/InvoiceRequest");
 		wsdl11Definition.setTargetNamespace("http://localhost:8080/holidayService/");
 		wsdl11Definition.setSchema(invoiceSchema);
 		return wsdl11Definition;
@@ -36,7 +36,7 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 
 	@Bean
 	public XsdSchema invoiceSchema() {
-		return new SimpleXsdSchema(new ClassPathResource("WEB-INF/invoice.xsd"));
+		return new SimpleXsdSchema(new ClassPathResource("invoice.xsd"));
 	}
 
 }

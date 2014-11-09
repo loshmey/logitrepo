@@ -29,14 +29,17 @@
 	<context:component-scan base-package="com.lo.apps.ws"/>
 
 	<web-services:static-wsdl id="invoice" location="/WEB-INF/wsdl/invoice.wsdl"/>
+<!-- 	<web-services:dynamic-wsdl id="invoice" portTypeName="Invoice" locationUri="http://localhost:8080/holidayService/"> -->
+<!-- 		<web-services:xsd location="/WEB-INF/xsd/invoice.xsd"/> -->
+<!-- 	</web-services:dynamic-wsdl> -->
 	
 	<bean id="marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
 		<property name="contextPath" value="com.lo.apps.ws.entity.invoice"/>
-		<property name="schema" value="/WEB-INF/invoice.xsd"/>
+		<property name="schema" value="/WEB-INF/xsd/invoice.xsd"/>
 	</bean>
 	
-	<int:channel id="inboundDOMInvoiceRequest"/>
-	<int-ws:inbound-gateway id="wsInboundGateway" request-channel="inboundDOMInvoiceRequest"/>
-	<int:service-activator input-channel="inboundDOMInvoiceRequest" ref="com.lo.apps.ws.endpoint.InvoiceEndpoint"/>
+<!-- 	<int:channel id="inboundDOMInvoiceRequest"/> -->
+<!-- 	<int-ws:inbound-gateway id="wsInboundGateway" request-channel="inboundDOMInvoiceRequest"/> -->
+<!-- 	<int:service-activator input-channel="inboundDOMInvoiceRequest" ref="com.lo.apps.ws.endpoint.InvoiceEndpoint"/> -->
 
 </beans>

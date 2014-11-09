@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+			xmlns:ih="http://localhost:8080/holidayService/" 			
+			targetNamespace="http://localhost:8080/holidayService/" 
+			elementFormDefault="qualified" 
+			attributeFormDefault="qualified">
+	
+	<xs:annotation>
+		<xs:documentation>Invoice schema</xs:documentation>
+	</xs:annotation>
+	
+	<!-- Invoice contains these elements -->
+	<xs:element name="InvoiceRequest" type="ih:InvoiceRequest"/>
+	<xs:element name="InvoiceResponse" type="ih:InvoiceResponse"/>	
+	
+	<!-- Request Items -->
+	<xs:complexType name="InvoiceRequest">
+		<xs:annotation>
+			<xs:documentation>Invoice request elements.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="requestDateTime" type="xs:date"/>
+			<xs:element name="invoiceHeaderData" type="ih:InvoiceHeader" maxOccurs="1"/>
+			<xs:element name="invoiceRecordData" type="ih:InvoiceRecord" maxOccurs="unbounded"/>							
+		</xs:sequence>
+	</xs:complexType>	
+	
+	<!-- Request Item: INVOICE HEADER -->
+	<xs:complexType name="InvoiceHeader">
+		<xs:annotation>
+			<xs:documentation>Invoice header containing information about supplier, buyer and transaction.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="supplier" type="ih:Supplier"/>			
+			<xs:element name="buyer" type="ih:Buyer"/>
+			<xs:element name="transaction" type="ih:Transaction"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- Request Item: INVOICE RECORD -->
+	<xs:complexType name="InvoiceRecord">
+		<xs:annotation>
+			<xs:documentation>Invoice record containing information about merch name, amount, quantity, prices...</xs:documentation>
+		</xs:annotation>	
+		<xs:sequence>
+			<xs:element name="recordNumber">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>Record number, 3 characters, number only</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:string">
+						<xs:whiteSpace value="collapse"/>
+						<xs:pattern value="^[0-9]{3}$"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="merchOrServiceName">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>Merch or service name, 120 characters, letters only</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:string">
+						<xs:whiteSpace value="preserve"/>
+						<xs:minLength value="1"/>
+						<xs:maxLength value="120"/>
+						<xs:pattern value="^[a-zA-Z]{0,120}$"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="amount">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>Amount, decimal number in format 10,2</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:decimal">
+						<xs:whiteSpace value="collapse"/>
+						<xs:fractionDigits value="2"/>
+						<xs:minInclusive value="1"/>
+						<xs:pattern value="^\d{1,10},{0,1}\d{2}$"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="unitOfIssue">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>Unit of issue, 6 characters, letters only</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:string">
+						<xs:whiteSpace value="collapse"/>
+						<xs:minLength value="1"/>
+						<xs:maxLength value="6"/>
+						<xs:pattern value="^[a-zA-Z]{0,6}$"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="unitPrice">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>Unit price, decimal number in format 10,2</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:decimal">
+						<xs:whiteSpace value="collapse"/>
+						<xs:fractionDigits value="2"/>
+						<xs:minInclusive value="1"/>
+						<xs:pattern value="^\d{1,10},{0,1}\d{2}$"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="value">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>Value, decimal number in format 12,2</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:decimal">
+						<xs:whiteSpace value="collapse"/>
+						<xs:fractionDigits value="2"/>
+						<xs:minInclusive value="1"/>
+						<xs:pattern value="^\d{1,12},{0,1}\d{2}$"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="rebatePercentage">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>Rebate percentage, decimal number in format 5,2</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:decimal">
+						<xs:whiteSpace value="collapse"/>
+						<xs:fractionDigits value="2"/>
+						<xs:minInclusive value="1"/>
+						<xs:pattern value="^\d{1,5},{0,1}\d{2}$"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="rebateAmount">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>Rebate amount, decimal number in format 12,2</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:decimal">
+						<xs:whiteSpace value="collapse"/>
+						<xs:fractionDigits value="2"/>
+						<xs:minInclusive value="1"/>
+						<xs:pattern value="^\d{1,12},{0,1}\d{2}$"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="rebateDeducted">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>Rebate deducted, decimal number in format 12,2</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:decimal">
+						<xs:whiteSpace value="collapse"/>
+						<xs:fractionDigits value="2"/>
+						<xs:minInclusive value="1"/>
+						<xs:pattern value="^\d{1,12},{0,1}\d{2}$"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="taxTotal">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>Tax total, decimal number in format 12,2</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:decimal">
+						<xs:whiteSpace value="collapse"/>
+						<xs:fractionDigits value="2"/>
+						<xs:minInclusive value="1"/>
+						<xs:pattern value="^\d{1,12},{0,1}\d{2}$"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- Request Item: INVOICE HEADER - SUPPLIER -->
+	<xs:complexType name="Supplier">
+		<xs:annotation>
+			<xs:documentation>Supplier properties.</xs:documentation>
+		</xs:annotation>	
+		<xs:sequence>
+			<xs:element name="supplierName">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>Supplier name, max 255 characters, letters only</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:string">
+						<xs:whiteSpace value="preserve"/>
+						<xs:minLength value="1"/>
+						<xs:maxLength value="255"/>
+						<xs:pattern value="^[a-zA-Z ]{0,255}$"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="supplierAddress">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>Supplier address, max 255 characters, letters only</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:string">
+						<xs:whiteSpace value="preserve"/>
+						<xs:minLength value="1"/>
+						<xs:maxLength value="255"/>
+						<xs:pattern value="^[a-zA-Z ]{0,255}$"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="supplierPIB">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>Supplier PIB, 11 characters, numbers only (first character must not be zero</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:string">
+						<xs:whiteSpace value="collapse"/>
+						<xs:length value="1"/>
+						<xs:pattern value="^[1-9][0-9]{10}$"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- Request Item: INVOICE HEADER - BUYER -->
+	<xs:complexType name="Buyer">
+		<xs:annotation>
+			<xs:documentation>Buyer properties.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="buyerName">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>Buyer name, max 55 characters, letters only</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:string">
+						<xs:whiteSpace value="collapse"/>
+						<xs:minLength value="1"/>
+						<xs:maxLength value="255"/>
+						<xs:pattern value="^[a-zA-Z ]{0,55}$"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="buyerAddress">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>Buyer address, max 55 characters, alphanumeric</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:string">
+						<xs:whiteSpace value="collapse"/>
+						<xs:minLength value="1"/>
+						<xs:maxLength value="255"/>
+						<xs:pattern value="^[a-zA-Z0-9 ]{0,55}$"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="buyerPIB">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>Buyer PIB, 11 characters, numbers only (first character must not be zero</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:string">
+						<xs:whiteSpace value="collapse"/>
+						<xs:length value="11"/>
+						<xs:pattern value="^[1-9][0-9]{10}$"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="account" type="ih:Account"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- Request Item: INVOICE HEADER - TRANSACTION -->
+	<xs:complexType name="Transaction">
+		<xs:annotation>
+			<xs:documentation>Transaction properties.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="merchValue">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>Merch value, decimal number in format 15,2</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:decimal">
+						<xs:whiteSpace value="collapse"/>
+						<xs:fractionDigits value="2"/>
+						<xs:minInclusive value="1"/>
+						<xs:pattern value="^\d{1,15},{0,1}\d{0,2}$"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="serviceValue">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>Service value, decimal number in format 15,2</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:decimal">
+						<xs:whiteSpace value="collapse"/>
+						<xs:fractionDigits value="2"/>
+						<xs:minInclusive value="1"/>
+						<xs:pattern value="^\d{1,15},{0,1}\d{0,2}$"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="sums" type="ih:Sums"/>
+			<xs:element name="amountToPay">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>Amount to pay, decimal number in format 15,2</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:decimal">
+						<xs:whiteSpace value="collapse"/>
+						<xs:fractionDigits value="2"/>
+						<xs:minInclusive value="1"/>
+						<xs:pattern value="^\d{1,15},{0,1}\d{2}$"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="payToAccount">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>Pay to account, 18 characters, numbers and dashes only</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:string">
+						<xs:whiteSpace value="collapse"/>
+						<xs:pattern value="^[1-9]{1}[\d\-]{17}$"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="currencyCode">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>Currency code, max 3 characters, letters only</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:string">
+						<xs:whiteSpace value="collapse"/>
+						<xs:pattern value="^[a-zA-Z]{3}$"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="dateOfCurrency">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>Date of currency, date in format yyyy-MM-dd</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:date">
+						<xs:whiteSpace value="collapse"/>
+						<xs:pattern value="^\d{4}-\d{2}-\d{2}$"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- Request Item: INVOICE HEADER - TRANSACTION/SUMS -->
+	<xs:complexType name="Sums">
+		<xs:annotation>
+			<xs:documentation>Handles sums in transaction.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="merchAndServiceSum">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>Merch and service sum, decimal number in format 15,2</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:decimal">
+						<xs:whiteSpace value="collapse"/>
+						<xs:fractionDigits value="2"/>
+						<xs:minInclusive value="1"/>
+						<xs:pattern value="^\d{1,15},{0,1}\d{2}$"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="rebateSum">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>Rebate sum, decimal number in format 15,2</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:decimal">
+						<xs:whiteSpace value="collapse"/>
+						<xs:fractionDigits value="2"/>
+						<xs:minInclusive value="1"/>
+						<xs:pattern value="^\d{1,15},{0,1}\d{2}$"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="taxSum">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>Tax sum, decimal number in format 15,2</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:decimal">
+						<xs:whiteSpace value="collapse"/>
+						<xs:fractionDigits value="2"/>
+						<xs:minInclusive value="1"/>
+						<xs:pattern value="^\d{1,15},{0,1}\d{2}$"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- Request Item: INVOICE HEADER - ACCOUNT -->
+	<xs:complexType name="Account">
+		<xs:annotation>
+			<xs:documentation>Account properties.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="accountNumber">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>Account number, 6 characters, numbers only</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:string">
+						<xs:whiteSpace value="collapse"/>
+						<xs:pattern value="^[0-9]{6}$"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="accountDate">
+				<xs:simpleType>
+					<xs:annotation>
+						<xs:documentation>Account date, date in format yyyy-MM-dd</xs:documentation>
+					</xs:annotation>
+					<xs:restriction base="xs:date">
+						<xs:whiteSpace value="collapse"/>
+						<xs:pattern value="^\d{4}-\d{2}-\d{2}$"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- Response Items --> 
+	<xs:complexType name="InvoiceResponse">
+		<xs:annotation>
+			<xs:documentation>Invoice response.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="invoiceId" type="xs:long" maxOccurs="1"/>
+			<xs:element name="responseDateTime" type="xs:dateTime"/>
+			<xs:element name="status" type="ih:Status"/>
+			<xs:element name="description" type="xs:string"/>			
+		</xs:sequence>	
+	</xs:complexType>	
+	
+	<!-- Service status -->
+	<xs:simpleType name="Status">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="OK"/>
+			<xs:enumeration value="ERROR"/>
+			<xs:enumeration value="PENDING"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+</xs:schema>
