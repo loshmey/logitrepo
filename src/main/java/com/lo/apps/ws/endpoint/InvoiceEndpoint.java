@@ -1,19 +1,17 @@
 package com.lo.apps.ws.endpoint;
 
 import org.jdom2.Element;
-import org.jdom2.JDOMException;
-import org.jdom2.Namespace;
-import org.jdom2.filter.Filters;
 import org.jdom2.xpath.XPathExpression;
-import org.jdom2.xpath.XPathFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.expression.ParseException;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
+import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 import com.lo.apps.ws.entity.invoice.InvoiceRequest;
 import com.lo.apps.ws.entity.invoice.InvoiceResponse;
+import com.lo.apps.ws.entity.invoice.ObjectFactory;
 import com.lo.apps.ws.entity.invoice.Status;
 import com.lo.apps.ws.service.InvoiceRequestService;
 import com.lo.apps.ws.testrepo.InvoiceRepo;
@@ -27,10 +25,10 @@ import com.lo.apps.ws.testrepo.InvoiceRepo;
 @Endpoint
 public class InvoiceEndpoint {
 
-	private static final String NAMESPACE_URI = "http://localhost:8080/invoiceService/";
+	private static final String NAMESPACE_URI = "http://localhost:8080/holidayService/ws/";
 
-	private XPathExpression<Element> invoiceRequest;
-	private XPathExpression<Element> invoiceResponse;
+	// private XPathExpression<Element> invoiceRequest;
+	// private XPathExpression<Element> invoiceResponse;
 
 	@Autowired
 	private InvoiceRequestService invoiceService;
@@ -38,16 +36,19 @@ public class InvoiceEndpoint {
 	@Autowired
 	private InvoiceRepo repo;
 
-	@Autowired
-	public InvoiceEndpoint(InvoiceRequestService invoiceService) throws JDOMException {
-		this.invoiceService = invoiceService;
-
-		Namespace namespace = Namespace.getNamespace("ih", NAMESPACE_URI);
-		XPathFactory factory = XPathFactory.instance();
-
-		invoiceRequest = factory.compile("//ih:InvoiceRequest", Filters.element(), null, namespace);
-		invoiceResponse = factory.compile("//ih:InvoiceResponse", Filters.element(), null, namespace);
-	}
+	// @Autowired
+	// public InvoiceEndpoint(InvoiceRequestService invoiceService) throws
+	// JDOMException {
+	// this.invoiceService = invoiceService;
+	//
+	// Namespace namespace = Namespace.getNamespace("ih", NAMESPACE_URI);
+	// XPathFactory factory = XPathFactory.instance();
+	//
+	// invoiceRequest = factory.compile("//ih:InvoiceRequest",
+	// Filters.element(), null, namespace);
+	// invoiceResponse = factory.compile("//ih:InvoiceResponse",
+	// Filters.element(), null, namespace);
+	// }
 
 	/**
 	 * Handles invoice request and sends response back.
@@ -59,14 +60,25 @@ public class InvoiceEndpoint {
 	 * @throws Exception
 	 */
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "InvoiceRequest")
-	public InvoiceResponse handleInvoiceRequest(@RequestPayload Element invoiceRequestElement) throws Exception {
-		InvoiceRequest invReq = parseRequestElement(invoiceRequest, invoiceRequestElement);
-
-		InvoiceResponse invRes = parseResponseElement(invoiceResponse, invoiceRequestElement);
+	@ResponsePayload
+	public InvoiceResponse handleInvoiceRequest(@RequestPayload InvoiceRequest invoiceRequestElement) throws Exception {
+		// InvoiceRequest invReq = parseRequestElement(invoiceRequest,
+		// invoiceRequestElement);
+		//
+		// InvoiceResponse invRes = parseResponseElement(invoiceResponse,
+		// invoiceRequestElement);
 
 		// TODO zameniti sa pravim posle testa
+		System.out.println(invoiceRequestElement);
+		InvoiceResponse invRes = new ObjectFactory().createInvoiceResponse();
+		// JAXBElement<InvoiceResponse> responseElement = new
+		// JAXBElement<InvoiceResponse>(new
+		// QName(InvoiceResponse.class.getSimpleName()), InvoiceResponse.class,
+		// invRes);
 		invRes.setDescription(repo.getInvoice().toString());
 		invRes.setStatus(Status.OK);
+
+		// responseElement.setValue(invRes);
 
 		return invRes;
 	}

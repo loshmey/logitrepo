@@ -20,7 +20,7 @@ public class InvoiceClientConfiguration {
 	@Bean
 	public InvoiceClient invoiceClient(Jaxb2Marshaller marshaller) {
 		InvoiceClient client = new InvoiceClient();
-		String defaultUri = "http://localhost:8080/invoiceService";
+		String defaultUri = "http://localhost:8080/holidayService/ws";
 		client.setDefaultUri(defaultUri);
 		client.setMarshaller(marshaller);
 		client.setUnmarshaller(marshaller);

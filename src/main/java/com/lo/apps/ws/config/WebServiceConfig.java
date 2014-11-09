@@ -29,14 +29,14 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
 		wsdl11Definition.setPortTypeName("InvoicePort");
 		wsdl11Definition.setLocationUri("/ws");
-		wsdl11Definition.setTargetNamespace("http://localhost:8080/invoiceService/");
+		wsdl11Definition.setTargetNamespace("http://localhost:8080/holidayService/");
 		wsdl11Definition.setSchema(invoiceSchema);
 		return wsdl11Definition;
 	}
 
 	@Bean
 	public XsdSchema invoiceSchema() {
-		return new SimpleXsdSchema(new ClassPathResource("invoice.xsd"));
+		return new SimpleXsdSchema(new ClassPathResource("WEB-INF/invoice.xsd"));
 	}
 
 }
