@@ -1,0 +1,8 @@
+keystore: comp-ks-pass
+comp1: comp1-pass
+comp2: comp2-pass
+bank1: bank1-pass
+bank2: bank2-pass
+cb: cb-pass
+pass phrase for cakey.pem: ca-pass
+challenge phrase for cakey.pem: ca-challenge-pass
