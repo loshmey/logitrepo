@@ -38,6 +38,8 @@
 		<property name="schema" value="/WEB-INF/xsd/invoice.xsd"/>
 	</bean>
 	
+	<bean id="keyStore" class="org.springframework.ws.soap.security.support.KeyStoreFactoryBean" p:password="comp-ks-pass" p:location="classpath:src/main/resources/security/keys/comp.ks"/>
+	
 <!-- 	<int:channel id="inboundDOMInvoiceRequest"/> -->
 <!-- 	<int-ws:inbound-gateway id="wsInboundGateway" request-channel="inboundDOMInvoiceRequest"/> -->
 <!-- 	<int:service-activator input-channel="inboundDOMInvoiceRequest" ref="com.lo.apps.ws.endpoint.InvoiceEndpoint"/> -->
