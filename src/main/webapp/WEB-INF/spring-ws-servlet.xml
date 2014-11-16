@@ -29,7 +29,7 @@
 	<context:component-scan base-package="com.lo.apps.ws"/>
 
 	<web-services:static-wsdl id="invoice" location="/WEB-INF/wsdl/invoice.wsdl"/>
-<!-- 	<web-services:dynamic-wsdl id="invoice" portTypeName="Invoice" locationUri="http://localhost:8080/holidayService/"> -->
+<!-- 	<web-services:dynamic-wsdl id="invoice" portTypeName="Invoice" locationUri="http://localhost:8080/xwsServer/"> -->
 <!-- 		<web-services:xsd location="/WEB-INF/xsd/invoice.xsd"/> -->
 <!-- 	</web-services:dynamic-wsdl> -->
 	

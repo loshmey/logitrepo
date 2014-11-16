@@ -24,7 +24,8 @@
 				xmlns:xs="http://www.w3.org/2001/XMLSchema">
 				<xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
 					<xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Invoice request
-						elements.</xs:documentation>
+						elements.
+					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
 					<xs:element name="requestDateTime" type="xs:date"
@@ -60,14 +61,16 @@
 				<xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
 					<xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Invoice record
 						containing information about merch name, amount, quantity,
-						prices...</xs:documentation>
+						prices...
+					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
 					<xs:element name="recordNumber" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 						<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema">
 							<xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
 								<xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Record number, 3
-									characters, number only</xs:documentation>
+									characters, number only
+								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:string"
 								xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -81,7 +84,8 @@
 						<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema">
 							<xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
 								<xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Merch or service
-									name, 120 characters, letters only</xs:documentation>
+									name, 120 characters, letters only
+								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:string"
 								xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -99,7 +103,8 @@
 						<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema">
 							<xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
 								<xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Amount, decimal
-									number in format 10,2</xs:documentation>
+									number in format 10,2
+								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:decimal"
 								xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -117,7 +122,8 @@
 						<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema">
 							<xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
 								<xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Unit of issue, 6
-									characters, letters only</xs:documentation>
+									characters, letters only
+								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:string"
 								xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -135,7 +141,8 @@
 						<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema">
 							<xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
 								<xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Unit price, decimal
-									number in format 10,2</xs:documentation>
+									number in format 10,2
+								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:decimal"
 								xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -153,7 +160,8 @@
 						<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema">
 							<xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
 								<xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Value, decimal
-									number in format 12,2</xs:documentation>
+									number in format 12,2
+								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:decimal"
 								xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -171,7 +179,8 @@
 						<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema">
 							<xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
 								<xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Rebate percentage,
-									decimal number in format 5,2</xs:documentation>
+									decimal number in format 5,2
+								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:decimal"
 								xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -189,7 +198,8 @@
 						<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema">
 							<xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
 								<xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Rebate amount,
-									decimal number in format 12,2</xs:documentation>
+									decimal number in format 12,2
+								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:decimal"
 								xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -207,7 +217,8 @@
 						<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema">
 							<xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
 								<xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Rebate deducted,
-									decimal number in format 12,2</xs:documentation>
+									decimal number in format 12,2
+								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:decimal"
 								xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -225,7 +236,8 @@
 						<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema">
 							<xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
 								<xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Tax total, decimal
-									number in format 12,2</xs:documentation>
+									number in format 12,2
+								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:decimal"
 								xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -254,7 +266,8 @@
 						<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema">
 							<xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
 								<xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Supplier name, max
-									255 characters, letters only</xs:documentation>
+									255 characters, letters only
+								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:string"
 								xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -272,7 +285,8 @@
 						<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema">
 							<xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
 								<xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Supplier address,
-									max 255 characters, letters only</xs:documentation>
+									max 255 characters, letters only
+								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:string"
 								xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -317,7 +331,8 @@
 						<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema">
 							<xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
 								<xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Buyer name, max 55
-									characters, letters only</xs:documentation>
+									characters, letters only
+								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:string"
 								xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -335,7 +350,8 @@
 						<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema">
 							<xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
 								<xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Buyer address, max
-									55 characters, alphanumeric</xs:documentation>
+									55 characters, alphanumeric
+								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:string"
 								xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -382,7 +398,8 @@
 						<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema">
 							<xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
 								<xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Merch value, decimal
-									number in format 15,2</xs:documentation>
+									number in format 15,2
+								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:decimal"
 								xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -400,7 +417,8 @@
 						<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema">
 							<xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
 								<xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Service value,
-									decimal number in format 15,2</xs:documentation>
+									decimal number in format 15,2
+								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:decimal"
 								xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -420,7 +438,8 @@
 						<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema">
 							<xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
 								<xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Amount to pay,
-									decimal number in format 15,2</xs:documentation>
+									decimal number in format 15,2
+								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:decimal"
 								xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -438,7 +457,8 @@
 						<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema">
 							<xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
 								<xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Pay to account, 18
-									characters, numbers and dashes only</xs:documentation>
+									characters, numbers and dashes only
+								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:string"
 								xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -452,7 +472,8 @@
 						<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema">
 							<xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
 								<xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Currency code, max 3
-									characters, letters only</xs:documentation>
+									characters, letters only
+								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:string"
 								xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -466,7 +487,8 @@
 						<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema">
 							<xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
 								<xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Date of currency,
-									date in format yyyy-MM-dd</xs:documentation>
+									date in format yyyy-MM-dd
+								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:date"
 								xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -484,14 +506,16 @@
 				xmlns:xs="http://www.w3.org/2001/XMLSchema">
 				<xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
 					<xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Handles sums in
-						transaction.</xs:documentation>
+						transaction.
+					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
 					<xs:element name="merchAndServiceSum" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 						<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema">
 							<xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
 								<xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Merch and service
-									sum, decimal number in format 15,2</xs:documentation>
+									sum, decimal number in format 15,2
+								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:decimal"
 								xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -509,7 +533,8 @@
 						<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema">
 							<xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
 								<xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Rebate sum, decimal
-									number in format 15,2</xs:documentation>
+									number in format 15,2
+								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:decimal"
 								xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -527,7 +552,8 @@
 						<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema">
 							<xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
 								<xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Tax sum, decimal
-									number in format 15,2</xs:documentation>
+									number in format 15,2
+								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:decimal"
 								xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -556,7 +582,8 @@
 						<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema">
 							<xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
 								<xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Account number, 6
-									characters, numbers only</xs:documentation>
+									characters, numbers only
+								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:string"
 								xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -570,7 +597,8 @@
 						<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema">
 							<xs:annotation xmlns:xs="http://www.w3.org/2001/XMLSchema">
 								<xs:documentation xmlns:xs="http://www.w3.org/2001/XMLSchema">Account date, date
-									in format yyyy-MM-dd</xs:documentation>
+									in format yyyy-MM-dd
+								</xs:documentation>
 							</xs:annotation>
 							<xs:restriction base="xs:date"
 								xmlns:xs="http://www.w3.org/2001/XMLSchema">

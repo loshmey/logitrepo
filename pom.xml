@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.lo.apps</groupId>
-	<artifactId>holidayService</artifactId>
+	<artifactId>xwsServer</artifactId>
 	<packaging>war</packaging>
 	<version>1.0</version>
-	<name>holidayService Spring-WS Application</name>
+	<name>xwsServer Spring-WS Application</name>
 	<url>http://www.springframework.org/spring-ws</url>
 
 	<properties>
@@ -185,7 +185,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>holidayService</finalName>
+		<finalName>xwsServer</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

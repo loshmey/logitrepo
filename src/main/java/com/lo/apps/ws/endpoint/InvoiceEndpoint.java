@@ -27,7 +27,7 @@ import com.lo.apps.ws.testrepo.InvoiceRepo;
 @Endpoint
 public class InvoiceEndpoint {
 
-	private static final String NAMESPACE_URI = "http://localhost:8080/holidayService/";
+	private static final String NAMESPACE_URI = "http://localhost:8080/xwsServer/";
 
 	@Autowired
 	private InvoiceRequestService invoiceService;

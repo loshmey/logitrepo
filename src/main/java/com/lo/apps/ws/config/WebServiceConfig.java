@@ -29,7 +29,7 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
 		wsdl11Definition.setPortTypeName("InvoicePort");
 		wsdl11Definition.setLocationUri("/InvoiceRequest");
-		wsdl11Definition.setTargetNamespace("http://localhost:8080/holidayService/");
+		wsdl11Definition.setTargetNamespace("http://localhost:8080/xwsServer/");
 		wsdl11Definition.setSchema(invoiceSchema);
 		return wsdl11Definition;
 	}

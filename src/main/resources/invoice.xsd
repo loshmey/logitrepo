@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-			xmlns:ih="http://localhost:8080/holidayService/" 			
-			targetNamespace="http://localhost:8080/holidayService/" 
+			xmlns:ih="http://localhost:8080/xwsServer/" 			
+			targetNamespace="http://localhost:8080/xwsServer/" 
 			elementFormDefault="qualified" 
 			attributeFormDefault="qualified">
 	
