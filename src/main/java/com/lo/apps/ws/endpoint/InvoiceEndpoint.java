@@ -6,10 +6,10 @@ import javax.xml.namespace.QName;
 import org.jdom2.JDOMException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
-import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 import org.springframework.ws.soap.SoapHeader;
+import org.springframework.ws.soap.server.endpoint.annotation.SoapAction;
 
 import com.lo.apps.ws.entity.invoice.InvoiceRequest;
 import com.lo.apps.ws.entity.invoice.InvoiceResponse;
@@ -49,7 +49,8 @@ public class InvoiceEndpoint {
 	 *         <code>ERROR</code>.
 	 * @throws Exception
 	 */
-	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "InvoiceRequest")
+	// @PayloadRoot(namespace = NAMESPACE_URI, localPart = "InvoiceRequest")
+	@SoapAction(value = NAMESPACE_URI + "InvoiceRequest")
 	@ResponsePayload
 	public JAXBElement<InvoiceResponse> handleInvoiceRequest(@RequestPayload JAXBElement<InvoiceRequest> invoiceRequestElement, SoapHeader soapHeader) throws Exception {
 		// TODO zameniti sa pravim posle testa

@@ -6,14 +6,12 @@
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:oxm="http://www.springframework.org/schema/oxm"
 	xmlns:util="http://www.springframework.org/schema/util"
 	xmlns:int="http://www.springframework.org/schema/integration"
 	xmlns:int-ws="http://www.springframework.org/schema/integration/ws"
 	xsi:schemaLocation="http://www.springframework.org/schema/integration/ws http://www.springframework.org/schema/integration/ws/spring-integration-ws-4.0.xsd
-		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
 		http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration-4.0.xsd
 		http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm-4.1.xsd
@@ -24,24 +22,58 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-	<web-services:annotation-driven/>
-	<mvc:annotation-driven/>
-	<context:component-scan base-package="com.lo.apps.ws"/>
-
-	<web-services:static-wsdl id="invoice" location="/WEB-INF/wsdl/invoice.wsdl"/>
-<!-- 	<web-services:dynamic-wsdl id="invoice" portTypeName="Invoice" locationUri="http://localhost:8080/xwsServer/"> -->
-<!-- 		<web-services:xsd location="/WEB-INF/xsd/invoice.xsd"/> -->
-<!-- 	</web-services:dynamic-wsdl> -->
+	<!-- ANNOTATION CONFIG -->
+	<web-services:annotation-driven />
+	<mvc:annotation-driven />
 	
+	<!-- SCAN PACKAGES -->
+	<context:component-scan base-package="com.lo.apps.ws" />
+
+	<!-- STATIC WSDL LOCATION -->
+	<web-services:static-wsdl id="invoice" location="/WEB-INF/wsdl/invoice.wsdl" />
+	
+	<!-- DYNAMIC WSDL -->
+	<!-- <web-services:dynamic-wsdl id="invoice" portTypeName="Invoice" locationUri="http://localhost:8080/xwsServer/"> -->
+	<!-- <web-services:xsd location="/WEB-INF/xsd/invoice.xsd"/> -->
+	<!-- </web-services:dynamic-wsdl> -->
+
+	<!-- JAXB MARSHALLER -->
 	<bean id="marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
-		<property name="contextPath" value="com.lo.apps.ws.entity.invoice"/>
-		<property name="schema" value="/WEB-INF/xsd/invoice.xsd"/>
+		<property name="contextPath" value="com.lo.apps.ws.entity.invoice" />
+		<property name="schema" value="/WEB-INF/xsd/invoice.xsd" />
 	</bean>
 	
-	<bean id="keyStore" class="org.springframework.ws.soap.security.support.KeyStoreFactoryBean" p:password="comp-ks-pass" p:location="classpath:src/main/resources/security/keys/comp.ks"/>
+	<!-- ENDPOINT INTERCEPTORS -->
+	<bean class="org.springframework.ws.server.endpoint.mapping.PayloadRootAnnotationMethodEndpointMapping">
+		<property name="interceptors">
+			<list>
+				<ref bean="wsServerSecurityInterceptor"/>
+				<ref bean="payloadValidatingInterceptor"/>
+			</list>
+		</property>
+	</bean>
 	
-<!-- 	<int:channel id="inboundDOMInvoiceRequest"/> -->
-<!-- 	<int-ws:inbound-gateway id="wsInboundGateway" request-channel="inboundDOMInvoiceRequest"/> -->
-<!-- 	<int:service-activator input-channel="inboundDOMInvoiceRequest" ref="com.lo.apps.ws.endpoint.InvoiceEndpoint"/> -->
+	<!-- VALIDATING INTERCEPTOR -->
+	<bean id="payloadValidatingInterceptor" class="org.springframework.ws.soap.server.endpoint.interceptor.PayloadValidatingInterceptor"
+	p:schema="/WEB-INF/xsd/invoice.xsd" 
+	p:validateRequest="true" 
+	p:validateResponse="true"/>
+	
+	<!-- WS SECURITY INTERCEPTOR -->
+	<bean id="wsServerSecurityInterceptor" class="org.springframework.ws.soap.security.wss4j.Wss4jSecurityInterceptor" 
+	p:validationActions="Timestamp Signature Encrypt" 
+	p:validationTimeToLive="10" 
+	p:timestampStrict="true" 
+	p:enableSignatureConfirmation="true" 
+	p:validationSignatureCrypto-ref="crypto"
+	p:validationDecryptionCrypto-ref="crypto"
+	p:securementActions="Signature"
+	p:securementSignatureCrypto="crypto"/>	
+
+	<!-- KEYSTORE -->
+	<bean id="crypto" class="org.springframework.ws.soap.security.wss4j.support.CryptoFactoryBean" 
+	p:keyStorePassword="comp-ks-pass" 
+	p:keyStoreLocation="classpath:src/main/resources/security/keys/comp.ks"/>	    
+
 
 </beans>
