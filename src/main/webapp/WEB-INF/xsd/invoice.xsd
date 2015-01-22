@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-			xmlns:ih="http://localhost:8080/xwsServer/" 			
-			targetNamespace="http://localhost:8080/xwsServer/" 
+			xmlns:ih="http://localhost:8080/invoice/schema" 			
+			targetNamespace="http://localhost:8080/invoice/schema" 
 			elementFormDefault="qualified" 
 			attributeFormDefault="qualified">
 	
@@ -9,21 +9,40 @@
 		<xs:documentation>Invoice schema</xs:documentation>
 	</xs:annotation>
 	
-	<!-- Invoice contains these elements -->
-	<xs:element name="InvoiceRequest" type="ih:InvoiceRequest"/>
-	<xs:element name="InvoiceResponse" type="ih:InvoiceResponse"/>	
-	
-	<!-- Request Items -->
-	<xs:complexType name="InvoiceRequest">
+	<!-- Invoice object -->
+	<xs:element name="Invoice">
 		<xs:annotation>
-			<xs:documentation>Invoice request elements.</xs:documentation>
+			<xs:documentation>Invoice object.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="requestDateTime" type="xs:date"/>
-			<xs:element name="invoiceHeaderData" type="ih:InvoiceHeader" maxOccurs="1"/>
-			<xs:element name="invoiceRecordData" type="ih:InvoiceRecord" maxOccurs="unbounded"/>							
-		</xs:sequence>
-	</xs:complexType>	
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="requestDateTime" type="xs:date"/>
+				<xs:element name="invoiceHeaderData" type="ih:InvoiceHeader" maxOccurs="1"/>
+				<xs:element name="invoiceRecordData" type="ih:InvoiceRecord" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute ref="ih:Id" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:attribute name="Id" type="xs:long"/>
+	
+	<xs:element name="SendInvoiceRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ih:Invoice"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="SendInvoiceResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="status" type="ih:Status"/>
+				<xs:element name="description" type="xs:string"/>
+				<xs:element name="timestamp" type="xs:date"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
 	
 	<!-- Request Item: INVOICE HEADER -->
 	<xs:complexType name="InvoiceHeader">
@@ -429,19 +448,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	
-	<!-- Response Items --> 
-	<xs:complexType name="InvoiceResponse">
-		<xs:annotation>
-			<xs:documentation>Invoice response.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="invoiceId" type="xs:long" maxOccurs="1"/>
-			<xs:element name="responseDateTime" type="xs:dateTime"/>
-			<xs:element name="status" type="ih:Status"/>
-			<xs:element name="description" type="xs:string"/>			
-		</xs:sequence>	
-	</xs:complexType>	
 	
 	<!-- Service status -->
 	<xs:simpleType name="Status">

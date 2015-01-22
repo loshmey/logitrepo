@@ -30,50 +30,50 @@
 	<context:component-scan base-package="com.lo.apps.ws" />
 
 	<!-- STATIC WSDL LOCATION -->
-	<web-services:static-wsdl id="invoice" location="/WEB-INF/wsdl/invoice.wsdl" />
+<!-- 	<web-services:static-wsdl id="invoice" location="/WEB-INF/wsdl/invoice.wsdl" /> -->
 	
 	<!-- DYNAMIC WSDL -->
-	<!-- <web-services:dynamic-wsdl id="invoice" portTypeName="Invoice" locationUri="http://localhost:8080/xwsServer/"> -->
-	<!-- <web-services:xsd location="/WEB-INF/xsd/invoice.xsd"/> -->
-	<!-- </web-services:dynamic-wsdl> -->
+	<web-services:dynamic-wsdl id="invoice" portTypeName="Invoice" locationUri="http://localhost:8080/invoice/">
+		<web-services:xsd location="/WEB-INF/xsd/invoice.xsd"/>
+	</web-services:dynamic-wsdl>
 
 	<!-- JAXB MARSHALLER -->
-	<bean id="marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
-		<property name="contextPath" value="com.lo.apps.ws.entity.invoice" />
-		<property name="schema" value="/WEB-INF/xsd/invoice.xsd" />
-	</bean>
+<!-- 	<bean id="marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller"> -->
+<!-- 		<property name="contextPath" value="com.lo.apps.ws.entity.invoice" /> -->
+<!-- 		<property name="schema" value="/WEB-INF/xsd/invoice.xsd" /> -->
+<!-- 	</bean> -->
 	
 	<!-- ENDPOINT INTERCEPTORS -->
-	<bean class="org.springframework.ws.server.endpoint.mapping.PayloadRootAnnotationMethodEndpointMapping">
-		<property name="interceptors">
-			<list>
-				<ref bean="wsServerSecurityInterceptor"/>
-				<ref bean="payloadValidatingInterceptor"/>
-			</list>
-		</property>
-	</bean>
+<!-- 	<bean class="org.springframework.ws.server.endpoint.mapping.PayloadRootAnnotationMethodEndpointMapping"> -->
+<!-- 		<property name="interceptors"> -->
+<!-- 			<list> -->
+<!-- 				<ref bean="wsServerSecurityInterceptor"/> -->
+<!-- 				<ref bean="payloadValidatingInterceptor"/> -->
+<!-- 			</list> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
 	
 	<!-- VALIDATING INTERCEPTOR -->
-	<bean id="payloadValidatingInterceptor" class="org.springframework.ws.soap.server.endpoint.interceptor.PayloadValidatingInterceptor"
-	p:schema="/WEB-INF/xsd/invoice.xsd" 
-	p:validateRequest="true" 
-	p:validateResponse="true"/>
+<!-- 	<bean id="payloadValidatingInterceptor" class="org.springframework.ws.soap.server.endpoint.interceptor.PayloadValidatingInterceptor" -->
+<!-- 	p:schema="/WEB-INF/xsd/invoice.xsd"  -->
+<!-- 	p:validateRequest="true"  -->
+<!-- 	p:validateResponse="true"/> -->
 	
 	<!-- WS SECURITY INTERCEPTOR -->
-	<bean id="wsServerSecurityInterceptor" class="org.springframework.ws.soap.security.wss4j.Wss4jSecurityInterceptor" 
-	p:validationActions="Timestamp Signature Encrypt" 
-	p:validationTimeToLive="10" 
-	p:timestampStrict="true" 
-	p:enableSignatureConfirmation="true" 
-	p:validationSignatureCrypto-ref="crypto"
-	p:validationDecryptionCrypto-ref="crypto"
-	p:securementActions="Signature"
-	p:securementSignatureCrypto="crypto"/>	
+<!-- 	<bean id="wsServerSecurityInterceptor" class="org.springframework.ws.soap.security.wss4j.Wss4jSecurityInterceptor"  -->
+<!-- 	p:validationActions="Timestamp Signature Encrypt"  -->
+<!-- 	p:validationTimeToLive="10"  -->
+<!-- 	p:timestampStrict="true"  -->
+<!-- 	p:enableSignatureConfirmation="true"  -->
+<!-- 	p:validationSignatureCrypto-ref="crypto" -->
+<!-- 	p:validationDecryptionCrypto-ref="crypto" -->
+<!-- 	p:securementActions="Signature" -->
+<!-- 	p:securementSignatureCrypto="crypto"/>	 -->
 
 	<!-- KEYSTORE -->
-	<bean id="crypto" class="org.springframework.ws.soap.security.wss4j.support.CryptoFactoryBean" 
-	p:keyStorePassword="comp-ks-pass" 
-	p:keyStoreLocation="classpath:src/main/resources/security/keys/comp.ks"/>	    
+<!-- 	<bean id="crypto" class="org.springframework.ws.soap.security.wss4j.support.CryptoFactoryBean"  -->
+<!-- 	p:keyStorePassword="comp-ks-pass"  -->
+<!-- 	p:keyStoreLocation="classpath:src/main/resources/security/keys/comp.ks"/>	     -->
 
 
 </beans>
