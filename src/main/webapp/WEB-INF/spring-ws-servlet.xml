@@ -30,12 +30,12 @@
 	<context:component-scan base-package="com.lo.apps.ws" />
 
 	<!-- STATIC WSDL LOCATION -->
-<!-- 	<web-services:static-wsdl id="invoice" location="/WEB-INF/wsdl/invoice.wsdl" /> -->
+	<web-services:static-wsdl id="invoice" location="/WEB-INF/wsdl/invoice.wsdl" />
 	
 	<!-- DYNAMIC WSDL -->
-	<web-services:dynamic-wsdl id="invoice" portTypeName="Invoice" locationUri="http://localhost:8080/invoice/">
-		<web-services:xsd location="/WEB-INF/xsd/invoice.xsd"/>
-	</web-services:dynamic-wsdl>
+<!-- 	<web-services:dynamic-wsdl id="invoice" portTypeName="Invoice" locationUri="http://localhost:8080/invoice/"> -->
+<!-- 		<web-services:xsd location="/WEB-INF/xsd/invoice.xsd"/> -->
+<!-- 	</web-services:dynamic-wsdl> -->
 
 	<!-- JAXB MARSHALLER -->
 <!-- 	<bean id="marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller"> -->
