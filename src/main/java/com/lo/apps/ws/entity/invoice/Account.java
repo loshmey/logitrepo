@@ -5,22 +5,24 @@
 // Generated on: 2015.01.22 at 11:39:00 PM CET 
 //
 
-
 package com.lo.apps.ws.entity.invoice;
+
+import java.util.Date;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
-
 
 /**
  * Account properties.
  * 
- * <p>Java class for Account complex type.
+ * <p>
+ * Java class for Account complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="Account">
@@ -52,63 +54,54 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Account", propOrder = {
-    "accountNumber",
-    "accountDate"
-})
+@XmlType(name = "Account", propOrder = { "accountNumber", "accountDate" })
 public class Account {
 
-    @XmlElement(required = true)
-    protected String accountNumber;
-    @XmlElement(required = true)
-    protected XMLGregorianCalendar accountDate;
+	@XmlElement(required = true)
+	protected String accountNumber;
+	@XmlElement(required = true)
+	protected Date accountDate;
 
-    /**
-     * Gets the value of the accountNumber property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getAccountNumber() {
-        return accountNumber;
-    }
+	/**
+	 * Gets the value of the accountNumber property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getAccountNumber() {
+		return accountNumber;
+	}
 
-    /**
-     * Sets the value of the accountNumber property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAccountNumber(String value) {
-        this.accountNumber = value;
-    }
+	/**
+	 * Sets the value of the accountNumber property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setAccountNumber(String value) {
+		this.accountNumber = value;
+	}
 
-    /**
-     * Gets the value of the accountDate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public XMLGregorianCalendar getAccountDate() {
-        return accountDate;
-    }
+	/**
+	 * Gets the value of the accountDate property.
+	 * 
+	 * @return possible object is {@link Date }
+	 * 
+	 */
+	public Date getAccountDate() {
+		return accountDate;
+	}
 
-    /**
-     * Sets the value of the accountDate property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public void setAccountDate(XMLGregorianCalendar value) {
-        this.accountDate = value;
-    }
+	/**
+	 * Sets the value of the accountDate property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link Date }
+	 * 
+	 */
+	public void setAccountDate(Date value) {
+		this.accountDate = value;
+	}
 
 }

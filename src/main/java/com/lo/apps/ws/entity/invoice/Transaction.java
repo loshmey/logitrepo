@@ -5,23 +5,25 @@
 // Generated on: 2015.01.22 at 11:39:00 PM CET 
 //
 
-
 package com.lo.apps.ws.entity.invoice;
 
 import java.math.BigDecimal;
+import java.util.Date;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
-
 
 /**
  * Transaction properties.
  * 
- * <p>Java class for Transaction complex type.
+ * <p>
+ * Java class for Transaction complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="Transaction">
@@ -92,198 +94,169 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Transaction", propOrder = {
-    "merchValue",
-    "serviceValue",
-    "sums",
-    "amountToPay",
-    "payToAccount",
-    "currencyCode",
-    "dateOfCurrency"
-})
+@XmlType(name = "Transaction", propOrder = { "merchValue", "serviceValue", "sums", "amountToPay", "payToAccount", "currencyCode", "dateOfCurrency" })
 public class Transaction {
 
-    @XmlElement(required = true)
-    protected BigDecimal merchValue;
-    @XmlElement(required = true)
-    protected BigDecimal serviceValue;
-    @XmlElement(required = true)
-    protected Sums sums;
-    @XmlElement(required = true)
-    protected BigDecimal amountToPay;
-    @XmlElement(required = true)
-    protected String payToAccount;
-    @XmlElement(required = true)
-    protected String currencyCode;
-    @XmlElement(required = true)
-    protected XMLGregorianCalendar dateOfCurrency;
+	@XmlElement(required = true)
+	protected BigDecimal merchValue;
+	@XmlElement(required = true)
+	protected BigDecimal serviceValue;
+	@XmlElement(required = true)
+	protected Sums sums;
+	@XmlElement(required = true)
+	protected BigDecimal amountToPay;
+	@XmlElement(required = true)
+	protected String payToAccount;
+	@XmlElement(required = true)
+	protected String currencyCode;
+	@XmlElement(required = true)
+	protected Date dateOfCurrency;
 
-    /**
-     * Gets the value of the merchValue property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *     
-     */
-    public BigDecimal getMerchValue() {
-        return merchValue;
-    }
+	/**
+	 * Gets the value of the merchValue property.
+	 * 
+	 * @return possible object is {@link BigDecimal }
+	 * 
+	 */
+	public BigDecimal getMerchValue() {
+		return merchValue;
+	}
 
-    /**
-     * Sets the value of the merchValue property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *     
-     */
-    public void setMerchValue(BigDecimal value) {
-        this.merchValue = value;
-    }
+	/**
+	 * Sets the value of the merchValue property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link BigDecimal }
+	 * 
+	 */
+	public void setMerchValue(BigDecimal value) {
+		this.merchValue = value;
+	}
 
-    /**
-     * Gets the value of the serviceValue property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *     
-     */
-    public BigDecimal getServiceValue() {
-        return serviceValue;
-    }
+	/**
+	 * Gets the value of the serviceValue property.
+	 * 
+	 * @return possible object is {@link BigDecimal }
+	 * 
+	 */
+	public BigDecimal getServiceValue() {
+		return serviceValue;
+	}
 
-    /**
-     * Sets the value of the serviceValue property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *     
-     */
-    public void setServiceValue(BigDecimal value) {
-        this.serviceValue = value;
-    }
+	/**
+	 * Sets the value of the serviceValue property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link BigDecimal }
+	 * 
+	 */
+	public void setServiceValue(BigDecimal value) {
+		this.serviceValue = value;
+	}
 
-    /**
-     * Gets the value of the sums property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Sums }
-     *     
-     */
-    public Sums getSums() {
-        return sums;
-    }
+	/**
+	 * Gets the value of the sums property.
+	 * 
+	 * @return possible object is {@link Sums }
+	 * 
+	 */
+	public Sums getSums() {
+		return sums;
+	}
 
-    /**
-     * Sets the value of the sums property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Sums }
-     *     
-     */
-    public void setSums(Sums value) {
-        this.sums = value;
-    }
+	/**
+	 * Sets the value of the sums property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link Sums }
+	 * 
+	 */
+	public void setSums(Sums value) {
+		this.sums = value;
+	}
 
-    /**
-     * Gets the value of the amountToPay property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *     
-     */
-    public BigDecimal getAmountToPay() {
-        return amountToPay;
-    }
+	/**
+	 * Gets the value of the amountToPay property.
+	 * 
+	 * @return possible object is {@link BigDecimal }
+	 * 
+	 */
+	public BigDecimal getAmountToPay() {
+		return amountToPay;
+	}
 
-    /**
-     * Sets the value of the amountToPay property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *     
-     */
-    public void setAmountToPay(BigDecimal value) {
-        this.amountToPay = value;
-    }
+	/**
+	 * Sets the value of the amountToPay property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link BigDecimal }
+	 * 
+	 */
+	public void setAmountToPay(BigDecimal value) {
+		this.amountToPay = value;
+	}
 
-    /**
-     * Gets the value of the payToAccount property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getPayToAccount() {
-        return payToAccount;
-    }
+	/**
+	 * Gets the value of the payToAccount property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getPayToAccount() {
+		return payToAccount;
+	}
 
-    /**
-     * Sets the value of the payToAccount property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setPayToAccount(String value) {
-        this.payToAccount = value;
-    }
+	/**
+	 * Sets the value of the payToAccount property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setPayToAccount(String value) {
+		this.payToAccount = value;
+	}
 
-    /**
-     * Gets the value of the currencyCode property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCurrencyCode() {
-        return currencyCode;
-    }
+	/**
+	 * Gets the value of the currencyCode property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	public String getCurrencyCode() {
+		return currencyCode;
+	}
 
-    /**
-     * Sets the value of the currencyCode property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCurrencyCode(String value) {
-        this.currencyCode = value;
-    }
+	/**
+	 * Sets the value of the currencyCode property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setCurrencyCode(String value) {
+		this.currencyCode = value;
+	}
 
-    /**
-     * Gets the value of the dateOfCurrency property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public XMLGregorianCalendar getDateOfCurrency() {
-        return dateOfCurrency;
-    }
+	/**
+	 * Gets the value of the dateOfCurrency property.
+	 * 
+	 * @return possible object is {@link Date }
+	 * 
+	 */
+	public Date getDateOfCurrency() {
+		return dateOfCurrency;
+	}
 
-    /**
-     * Sets the value of the dateOfCurrency property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public void setDateOfCurrency(XMLGregorianCalendar value) {
-        this.dateOfCurrency = value;
-    }
+	/**
+	 * Sets the value of the dateOfCurrency property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link Date }
+	 * 
+	 */
+	public void setDateOfCurrency(Date value) {
+		this.dateOfCurrency = value;
+	}
 
 }
