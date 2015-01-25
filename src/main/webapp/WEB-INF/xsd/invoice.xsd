@@ -69,7 +69,7 @@
 					</xs:annotation>
 					<xs:restriction base="xs:string">
 						<xs:whiteSpace value="collapse"/>
-						<xs:pattern value="^[0-9]{3}$"/>
+						<xs:pattern value="[0-9]{3}"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -82,7 +82,7 @@
 						<xs:whiteSpace value="preserve"/>
 						<xs:minLength value="1"/>
 						<xs:maxLength value="120"/>
-						<xs:pattern value="^[a-zA-Z]{0,120}$"/>
+						<xs:pattern value="[a-zA-Z]{0,120}"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -95,7 +95,7 @@
 						<xs:whiteSpace value="collapse"/>
 						<xs:fractionDigits value="2"/>
 						<xs:minInclusive value="1"/>
-						<xs:pattern value="^\d{1,10},{0,1}\d{2}$"/>
+						<xs:pattern value="\d{1,10}.{0,1}\d{2}"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -108,7 +108,7 @@
 						<xs:whiteSpace value="collapse"/>
 						<xs:minLength value="1"/>
 						<xs:maxLength value="6"/>
-						<xs:pattern value="^[a-zA-Z]{0,6}$"/>
+						<xs:pattern value="[a-zA-Z]{0,6}"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -121,7 +121,7 @@
 						<xs:whiteSpace value="collapse"/>
 						<xs:fractionDigits value="2"/>
 						<xs:minInclusive value="1"/>
-						<xs:pattern value="^\d{1,10},{0,1}\d{2}$"/>
+						<xs:pattern value="\d{1,10}.{0,1}\d{2}"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -134,7 +134,7 @@
 						<xs:whiteSpace value="collapse"/>
 						<xs:fractionDigits value="2"/>
 						<xs:minInclusive value="1"/>
-						<xs:pattern value="^\d{1,12},{0,1}\d{2}$"/>
+						<xs:pattern value="\d{1,12}.{0,1}\d{2}"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -147,7 +147,7 @@
 						<xs:whiteSpace value="collapse"/>
 						<xs:fractionDigits value="2"/>
 						<xs:minInclusive value="1"/>
-						<xs:pattern value="^\d{1,5},{0,1}\d{2}$"/>
+						<xs:pattern value="\d{1,5}.{0,1}\d{2}"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -160,7 +160,7 @@
 						<xs:whiteSpace value="collapse"/>
 						<xs:fractionDigits value="2"/>
 						<xs:minInclusive value="1"/>
-						<xs:pattern value="^\d{1,12},{0,1}\d{2}$"/>
+						<xs:pattern value="\d{1,12}.{0,1}\d{2}"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -173,7 +173,7 @@
 						<xs:whiteSpace value="collapse"/>
 						<xs:fractionDigits value="2"/>
 						<xs:minInclusive value="1"/>
-						<xs:pattern value="^\d{1,12},{0,1}\d{2}$"/>
+						<xs:pattern value="\d{1,12}.{0,1}\d{2}"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -186,7 +186,7 @@
 						<xs:whiteSpace value="collapse"/>
 						<xs:fractionDigits value="2"/>
 						<xs:minInclusive value="1"/>
-						<xs:pattern value="^\d{1,12},{0,1}\d{2}$"/>
+						<xs:pattern value="\d{1,12}.{0,1}\d{2}"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -208,7 +208,7 @@
 						<xs:whiteSpace value="preserve"/>
 						<xs:minLength value="1"/>
 						<xs:maxLength value="255"/>
-						<xs:pattern value="^[a-zA-Z ]{0,255}$"/>
+						<xs:pattern value="[a-zA-Z ]{0,255}"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -221,7 +221,7 @@
 						<xs:whiteSpace value="preserve"/>
 						<xs:minLength value="1"/>
 						<xs:maxLength value="255"/>
-						<xs:pattern value="^[a-zA-Z ]{0,255}$"/>
+						<xs:pattern value="[a-zA-Z ]{0,255}"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -232,8 +232,8 @@
 					</xs:annotation>
 					<xs:restriction base="xs:string">
 						<xs:whiteSpace value="collapse"/>
-						<xs:length value="1"/>
-						<xs:pattern value="^[1-9][0-9]{10}$"/>
+						<xs:length value="11"/>
+						<xs:pattern value="[1-9][0-9]{10}"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -255,7 +255,7 @@
 						<xs:whiteSpace value="collapse"/>
 						<xs:minLength value="1"/>
 						<xs:maxLength value="255"/>
-						<xs:pattern value="^[a-zA-Z ]{0,55}$"/>
+						<xs:pattern value="[a-zA-Z ]{0,55}"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -268,7 +268,7 @@
 						<xs:whiteSpace value="collapse"/>
 						<xs:minLength value="1"/>
 						<xs:maxLength value="255"/>
-						<xs:pattern value="^[a-zA-Z0-9 ]{0,55}$"/>
+						<xs:pattern value="[a-zA-Z0-9 ]{0,55}"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -280,7 +280,7 @@
 					<xs:restriction base="xs:string">
 						<xs:whiteSpace value="collapse"/>
 						<xs:length value="11"/>
-						<xs:pattern value="^[1-9][0-9]{10}$"/>
+						<xs:pattern value="[1-9][0-9]{10}"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -303,7 +303,7 @@
 						<xs:whiteSpace value="collapse"/>
 						<xs:fractionDigits value="2"/>
 						<xs:minInclusive value="1"/>
-						<xs:pattern value="^\d{1,15},{0,1}\d{0,2}$"/>
+						<xs:pattern value="\d{1,15}.{0,1}\d{0,2}"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -316,7 +316,7 @@
 						<xs:whiteSpace value="collapse"/>
 						<xs:fractionDigits value="2"/>
 						<xs:minInclusive value="1"/>
-						<xs:pattern value="^\d{1,15},{0,1}\d{0,2}$"/>
+						<xs:pattern value="\d{1,15}.{0,1}\d{0,2}"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -330,7 +330,7 @@
 						<xs:whiteSpace value="collapse"/>
 						<xs:fractionDigits value="2"/>
 						<xs:minInclusive value="1"/>
-						<xs:pattern value="^\d{1,15},{0,1}\d{2}$"/>
+						<xs:pattern value="\d{1,15}.{0,1}\d{2}"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -341,7 +341,7 @@
 					</xs:annotation>
 					<xs:restriction base="xs:string">
 						<xs:whiteSpace value="collapse"/>
-						<xs:pattern value="^[1-9]{1}[\d\-]{17}$"/>
+						<xs:pattern value="[1-9]{1}[\d\-]{17}"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -352,7 +352,7 @@
 					</xs:annotation>
 					<xs:restriction base="xs:string">
 						<xs:whiteSpace value="collapse"/>
-						<xs:pattern value="^[a-zA-Z]{3}$"/>
+						<xs:pattern value="[a-zA-Z]{3}"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -363,7 +363,7 @@
 					</xs:annotation>
 					<xs:restriction base="xs:date">
 						<xs:whiteSpace value="collapse"/>
-						<xs:pattern value="^\d{4}-\d{2}-\d{2}$"/>
+						<xs:pattern value="\d{4}-\d{2}-\d{2}"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -385,7 +385,7 @@
 						<xs:whiteSpace value="collapse"/>
 						<xs:fractionDigits value="2"/>
 						<xs:minInclusive value="1"/>
-						<xs:pattern value="^\d{1,15},{0,1}\d{2}$"/>
+						<xs:pattern value="\d{1,15}.{0,1}\d{2}"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -398,7 +398,7 @@
 						<xs:whiteSpace value="collapse"/>
 						<xs:fractionDigits value="2"/>
 						<xs:minInclusive value="1"/>
-						<xs:pattern value="^\d{1,15},{0,1}\d{2}$"/>
+						<xs:pattern value="\d{1,15}.{0,1}\d{2}"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -411,7 +411,7 @@
 						<xs:whiteSpace value="collapse"/>
 						<xs:fractionDigits value="2"/>
 						<xs:minInclusive value="1"/>
-						<xs:pattern value="^\d{1,15},{0,1}\d{2}$"/>
+						<xs:pattern value="\d{1,15}.{0,1}\d{2}"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -431,7 +431,7 @@
 					</xs:annotation>
 					<xs:restriction base="xs:string">
 						<xs:whiteSpace value="collapse"/>
-						<xs:pattern value="^[0-9]{6}$"/>
+						<xs:pattern value="[0-9]{6}"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -442,7 +442,7 @@
 					</xs:annotation>
 					<xs:restriction base="xs:date">
 						<xs:whiteSpace value="collapse"/>
-						<xs:pattern value="^\d{4}-\d{2}-\d{2}$"/>
+						<xs:pattern value="\d{4}-\d{2}-\d{2}"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
