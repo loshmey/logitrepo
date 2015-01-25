@@ -1,12 +1,16 @@
 package com.lo.apps.ws.service.impl;
 
+import java.util.Date;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.lo.apps.exception.InvoiceException;
 import com.lo.apps.ws.entity.invoice.Invoice;
+import com.lo.apps.ws.entity.invoice.ObjectFactory;
 import com.lo.apps.ws.entity.invoice.SendInvoiceResponse;
+import com.lo.apps.ws.entity.invoice.Status;
 import com.lo.apps.ws.service.InvoiceRequestService;
 
 /**
@@ -22,8 +26,15 @@ public class InvoiceRequestServiceImpl implements InvoiceRequestService {
 
 	@Override
 	public SendInvoiceResponse sendInvoice(Invoice invoice) throws InvoiceException {
+		// TODO Snimiti invoice u XML bazu
+		SendInvoiceResponse response = new ObjectFactory().createSendInvoiceResponse();
+		response.setDescription("Uspesno poslata faktura!");
+		response.setStatus(Status.OK);
+		response.setTimestamp(new Date());
 
-		return null;
+		logger.debug("Slanje response-a: {}", response);
+
+		return response;
 	}
 
 }
