@@ -1,5 +1,6 @@
 package com.lo.apps.ws.service.impl;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.slf4j.Logger;
@@ -27,10 +28,13 @@ public class InvoiceRequestServiceImpl implements InvoiceRequestService {
 	@Override
 	public SendInvoiceResponse sendInvoice(Invoice invoice) throws InvoiceException {
 		// TODO Snimiti invoice u XML bazu
+
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
 		SendInvoiceResponse response = new ObjectFactory().createSendInvoiceResponse();
 		response.setDescription("Uspesno poslata faktura!");
 		response.setStatus(Status.OK);
-		response.setTimestamp(new Date());
+		response.setTimestamp(sdf.format(new Date()));
 
 		logger.debug("Slanje response-a: {}", response);
 
