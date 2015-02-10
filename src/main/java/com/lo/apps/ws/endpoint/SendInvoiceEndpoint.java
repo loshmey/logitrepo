@@ -1,14 +1,18 @@
 package com.lo.apps.ws.endpoint;
 
+import java.io.IOException;
+
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.jdom2.Element;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
+import org.springframework.ws.soap.SoapHeader;
 
 import com.lo.apps.exception.InvoiceException;
-import com.lo.apps.ws.entity.invoice.SendInvoiceRequest;
-import com.lo.apps.ws.entity.invoice.SendInvoiceResponse;
 import com.lo.apps.ws.service.InvoiceRequestService;
 
 /**
@@ -29,8 +33,9 @@ public class SendInvoiceEndpoint {
 
 	@PayloadRoot(namespace = "http://localhost:8080/invoice/schema", localPart = "SendInvoiceRequest")
 	@ResponsePayload
-	public SendInvoiceResponse sendInvoice(@RequestPayload SendInvoiceRequest invoiceRequest) throws InvoiceException {
-		return invoiceService.sendInvoice(invoiceRequest.getInvoice());
+	public Element sendInvoice(@RequestPayload Element request, SoapHeader soapHeader) throws InvoiceException, ParserConfigurationException, IOException {
+		// return invoiceService.sendInvoice(invoiceRequest.getInvoice());
+		return invoiceService.sendInvoice(request);
 	}
 
 }

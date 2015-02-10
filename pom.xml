@@ -13,7 +13,6 @@
 		<!-- use UTF-8 for everything -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<!-- <start-class>com.lo.apps.ws.config.Application</start-class> -->
 		<spring.version>4.1.2.RELEASE</spring.version>
 		<spring.ws.version>2.2.0.RELEASE</spring.ws.version>
 		<spring.boot.version>1.1.9.RELEASE</spring.boot.version>
@@ -71,19 +70,10 @@
 			<artifactId>xmlschema-core</artifactId>
 			<version>2.0.2</version>
 		</dependency>
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework</groupId> -->
-<!-- 			<artifactId>spring-jdbc</artifactId> -->
-<!-- 		</dependency> -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
 		</dependency>
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework.data</groupId> -->
-<!-- 			<artifactId>spring-data-commons</artifactId> -->
-<!-- 			<version>1.9.1.RELEASE</version> -->
-<!-- 		</dependency> -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -96,16 +86,6 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
 		</dependency>
-		<!-- <dependency> -->
-		<!-- <groupId>org.springframework.integration</groupId> -->
-		<!-- <artifactId>spring-integration-ws</artifactId> -->
-		<!-- <version>4.0.4.RELEASE</version> -->
-		<!-- </dependency> -->
-		<!-- <dependency> -->
-		<!-- <groupId>org.springframework.integration</groupId> -->
-		<!-- <artifactId>spring-integration-xml</artifactId> -->
-		<!-- <version>4.0.4.RELEASE</version> -->
-		<!-- </dependency> -->
 
 		<!-- SPRING WS & SPRING WS SECURITY -->
 		<dependency>
@@ -123,12 +103,6 @@
 			<groupId>org.jdom</groupId>
 			<artifactId>jdom2</artifactId>
 			<version>2.0.5</version>
-		</dependency>
-
-		<dependency>
-			<groupId>wsdl4j</groupId>
-			<artifactId>wsdl4j</artifactId>
-			<version>1.6.1</version>
 		</dependency>
 
 		<!-- Jackson -->
@@ -156,18 +130,6 @@
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
 			<version>1.4</version>
-		</dependency>
-
-		<!-- eXist DB -->
-		<dependency>
-			<groupId>exist</groupId>
-			<artifactId>exist-xmldb</artifactId>
-			<version>0.9.2</version>
-		</dependency>
-		<dependency>
-			<groupId>exist</groupId>
-			<artifactId>exist</artifactId>
-			<version>0.9.2</version>
 		</dependency>
 
 		<dependency>
