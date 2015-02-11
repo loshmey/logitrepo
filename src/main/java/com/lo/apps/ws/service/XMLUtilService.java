@@ -1,8 +1,7 @@
 package com.lo.apps.ws.service;
 
 import org.w3c.dom.Document;
-
-import com.lo.apps.ws.entity.invoice.SendInvoiceRequest;
+import org.w3c.dom.Element;
 
 /**
  * XML handling service.
@@ -18,7 +17,7 @@ public interface XMLUtilService {
 	 * @param request
 	 * @throws Exception
 	 */
-	public void saveRequestAsXML(SendInvoiceRequest request) throws Exception;
+	public void saveRequestAsXML(Element element) throws Exception;
 
 	/**
 	 * Fetches XML from DB by id.
