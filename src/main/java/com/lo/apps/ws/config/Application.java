@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
-@Import({ ComponentScanConfig.class, WebServiceConfig.class })
+@Import({ ComponentScanConfig.class, ServerWSConfiguration.class, MessageHeaderConfig.class })
 @EnableWebMvc
 @EnableAutoConfiguration(exclude = { DataSourceAutoConfiguration.class, SecurityAutoConfiguration.class, HibernateJpaAutoConfiguration.class })
 public class Application {

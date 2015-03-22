@@ -35,7 +35,6 @@ public class SendInvoiceEndpoint {
 	@PayloadRoot(namespace = "http://localhost:8080/invoice/schema", localPart = "SendInvoiceRequest")
 	@ResponsePayload
 	public SendInvoiceResponse sendInvoice(@RequestPayload Element request, SoapHeader soapHeader) throws InvoiceException, ParserConfigurationException, IOException {
-		// return invoiceService.sendInvoice(invoiceRequest.getInvoice());
 		return invoiceService.sendInvoice(request);
 	}
 
