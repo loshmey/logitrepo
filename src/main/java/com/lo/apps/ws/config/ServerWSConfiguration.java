@@ -50,10 +50,10 @@ public class ServerWSConfiguration extends WsConfigurerAdapter {
 	}
 
 	/**
-	 * WSDL configuration.
+	 * Dynamic WSDL configuration. Builds a WSDL from a XSD schema.
 	 * 
 	 * @param invoiceSchema
-	 * @return WSDL definition.
+	 * @return WSDL.
 	 */
 	@Bean(name = "invoice")
 	public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema invoiceSchema) {
