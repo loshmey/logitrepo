@@ -2,8 +2,7 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
 			xmlns:ih="http://localhost:8080/invoice/schema" 			
 			targetNamespace="http://localhost:8080/invoice/schema" 
-			elementFormDefault="qualified" 
-			attributeFormDefault="qualified">
+			elementFormDefault="qualified">
 	
 	<xs:annotation>
 		<xs:documentation>Invoice schema</xs:documentation>
@@ -20,11 +19,8 @@
 				<xs:element name="invoiceHeaderData" type="ih:InvoiceHeader" maxOccurs="1"/>
 				<xs:element name="invoiceRecordData" type="ih:InvoiceRecord" maxOccurs="unbounded"/>
 			</xs:sequence>
-			<xs:attribute ref="ih:Id" use="required"/>
 		</xs:complexType>
 	</xs:element>
-	
-	<xs:attribute name="Id" type="xs:long"/>
 	
 	<xs:element name="SendInvoiceRequest">
 		<xs:complexType>

@@ -16,6 +16,6 @@ import com.lo.apps.ws.entity.invoice.SendInvoiceResponse;
  */
 public interface InvoiceRequestService {
 
-	public SendInvoiceResponse sendInvoice(Element request) throws ParserConfigurationException, IOException;
+	SendInvoiceResponse sendInvoice(Element request) throws ParserConfigurationException, IOException;
 
 }

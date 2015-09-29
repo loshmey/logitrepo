@@ -14,26 +14,26 @@ public interface XMLUtilService {
 	/**
 	 * Saves request to XML database.
 	 * 
-	 * @param request
+	 * @param element Request as element.
 	 * @throws Exception
 	 */
-	public void saveRequestAsXML(Element element) throws Exception;
+	void saveRequestAsXML(Element element) throws Exception;
 
 	/**
 	 * Fetches XML from DB by id.
 	 * 
-	 * @param id
-	 * @return
+	 * @param id xml id
+	 * @return xml document
 	 * @throws Exception
 	 */
-	public Document fetchXMLFromDBById(String id) throws Exception;
+	Document fetchXMLFromDBById(String id) throws Exception;
 
 	/**
 	 * Fetches all XML documents from db.
 	 * 
-	 * @return
+	 * @return all xml documents
 	 * @throws Exception
 	 */
-	public String[] fetchAllXMLDocuments() throws Exception;
+	String[] fetchAllXMLDocuments() throws Exception;
 
 }
