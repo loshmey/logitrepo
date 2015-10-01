@@ -217,7 +217,7 @@ public class ServerWSConfiguration extends WsConfigurerAdapter {
 		try {
 			securityInterceptor.setSecurementActions("Timestamp Signature Encrypt");
 
-			securityInterceptor.setSecurementEncryptionKeyIdentifier("DirectReference");
+			securityInterceptor.setSecurementEncryptionKeyIdentifier("IssuerSerial");
 			securityInterceptor.setSecurementEncryptionKeyTransportAlgorithm("http://www.w3.org/2001/04/xmlenc#rsa-1_5");
 			securityInterceptor.setSecurementEncryptionSymAlgorithm("http://www.w3.org/2001/04/xmlenc#aes128-cbc");
 
@@ -226,6 +226,7 @@ public class ServerWSConfiguration extends WsConfigurerAdapter {
 			securityInterceptor.setTimestampPrecisionInMilliseconds(true);
 			securityInterceptor.setTimestampStrict(true);
 
+			securityInterceptor.setSecurementSignatureKeyIdentifier("IssuerSerial");
 			securityInterceptor.setSecurementUsername("banka1");
 			securityInterceptor.setSecurementPassword("x");
 			securityInterceptor.setSecurementSignatureCrypto(keyStore().getObject());
@@ -244,7 +245,7 @@ public class ServerWSConfiguration extends WsConfigurerAdapter {
 	public CryptoFactoryBean keyStore() throws IOException {
 		logger.debug("In signatureCrypto()...");
 		CryptoFactoryBean signatureCrypto = new CryptoFactoryBean();
-		signatureCrypto.setKeyStoreLocation(new ClassPathResource("/security/keystore/banka1.jks"));
+		signatureCrypto.setKeyStoreLocation(new ClassPathResource("/security/keystore/firma1.jks"));
 		signatureCrypto.setKeyStorePassword("x");
 
 		return signatureCrypto;
