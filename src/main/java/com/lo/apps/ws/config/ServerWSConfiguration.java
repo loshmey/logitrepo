@@ -202,7 +202,7 @@ public class ServerWSConfiguration extends WsConfigurerAdapter {
 	@Bean
 	public KeyStoreCallbackHandler validationCallbackHandler() {
 		KeyStoreCallbackHandler validationCallbackHandler = new KeyStoreCallbackHandler();
-		validationCallbackHandler.setPrivateKeyPassword("bank2_pass");
+		validationCallbackHandler.setPrivateKeyPassword("x");
 
 		return validationCallbackHandler;
 	}
@@ -217,7 +217,7 @@ public class ServerWSConfiguration extends WsConfigurerAdapter {
 		try {
 			securityInterceptor.setSecurementActions("Timestamp Signature Encrypt");
 
-			securityInterceptor.setSecurementEncryptionKeyIdentifier("IssuerSerial");
+			securityInterceptor.setSecurementEncryptionKeyIdentifier("DirectReference");
 			securityInterceptor.setSecurementEncryptionKeyTransportAlgorithm("http://www.w3.org/2001/04/xmlenc#rsa-1_5");
 			securityInterceptor.setSecurementEncryptionSymAlgorithm("http://www.w3.org/2001/04/xmlenc#aes128-cbc");
 
@@ -226,11 +226,11 @@ public class ServerWSConfiguration extends WsConfigurerAdapter {
 			securityInterceptor.setTimestampPrecisionInMilliseconds(true);
 			securityInterceptor.setTimestampStrict(true);
 
-			securityInterceptor.setSecurementUsername("bank2");
-			securityInterceptor.setSecurementPassword("bank2_pass");
+			securityInterceptor.setSecurementUsername("banka1");
+			securityInterceptor.setSecurementPassword("x");
 			securityInterceptor.setSecurementSignatureCrypto(keyStore().getObject());
 
-			securityInterceptor.setSecurementEncryptionUser("bank1");
+			securityInterceptor.setSecurementEncryptionUser("banka1");
 			securityInterceptor.setSecurementEncryptionCrypto(keyStore().getObject());
 			securityInterceptor.setSecurementEncryptionParts("{Content}{http://localhost:8080/invoice/schema}SendInvoiceResponse");
 		} catch (Exception e) {
@@ -244,8 +244,8 @@ public class ServerWSConfiguration extends WsConfigurerAdapter {
 	public CryptoFactoryBean keyStore() throws IOException {
 		logger.debug("In signatureCrypto()...");
 		CryptoFactoryBean signatureCrypto = new CryptoFactoryBean();
-		signatureCrypto.setKeyStoreLocation(new ClassPathResource("/security/keys/bank2.jks"));
-		signatureCrypto.setKeyStorePassword("bank2_pass");
+		signatureCrypto.setKeyStoreLocation(new ClassPathResource("/security/keystore/banka1.jks"));
+		signatureCrypto.setKeyStorePassword("x");
 
 		return signatureCrypto;
 	}
